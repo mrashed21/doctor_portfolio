@@ -1,147 +1,156 @@
 "use client";
+import Container from "@/Components/Container/Container";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, PhoneCall, Search, X } from "lucide-react";
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
-const Container = ({ children, className = "" }) => {
-  return (
-    <motion.section className={`max-w-[1600px] w-[95%] mx-auto ${className}`}>
-      {children}
-    </motion.section>
-  );
-};
+export default function Navbar() {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [open, setOpen] = useState(false);
 
-const navItems = [
-  { name: "HOME", href: "#home" },
-  { name: "ABOUT", href: "#about" },
-  { name: "SERVICE", href: "#service" },
-  { name: "BLOG", href: "#blog" },
-  { name: "FAQS", href: "#faqs" },
-  { name: "Contact", href: "#contact" },
-];
+  // Effect to hide/show the navbar on scroll
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setShowNavbar(true);
+      } else if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      lastScrollY = window.scrollY;
+    };
 
-  // Framer Motion variants for mobile menu
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Effect to lock body scroll when the drawer is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
+
   const menuVariants = {
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 },
-    },
-    closed: {
-      opacity: 0,
-      x: "100%",
-      transition: { type: "spring", stiffness: 300, damping: 30 },
-    },
+    hidden: { x: "100%" },
+    visible: { x: "0%" },
+    exit: { x: "100%" },
   };
 
-  // Framer Motion variants for desktop menu items (staggered effect)
-  const navItemVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
-  };
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Blog", path: "/blog" },
+    { name: "FAQs", path: "/faq" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      {/* Container is now directly available */}
-      <Container className="py-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <motion.div
-            className="text-2xl font-bold text-green-600 tracking-wider"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Logo
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 text-sm font-medium">
-            <AnimatePresence>
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-green-600 transition duration-300"
-                  variants={navItemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Icons & Contact Info */}
-          <div className="flex items-center space-x-6">
-            <motion.div
-              className="hidden md:flex items-center space-x-2 text-green-600 cursor-pointer"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-            >
-              <Search className="w-5 h-5" />
-            </motion.div>
-
-            <motion.div
-              className="flex items-center space-x-2 text-green-600 border border-green-600 p-2 rounded-full hover:bg-green-50 transition duration-300 cursor-pointer"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-            >
-              <PhoneCall className="w-5 h-5" />
-              <span className="hidden lg:inline text-sm font-semibold">
-                +1-555-123-4567
-              </span>
-            </motion.div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-gray-700 hover:text-green-600 transition duration-300"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-      </Container>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="absolute top-16 right-0 w-full bg-white lg:hidden shadow-lg border-t border-gray-100"
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-          >
-            <div className="flex flex-col p-4 space-y-2">
+    <>
+      {/* The main header component that hides/shows */}
+      <header
+        className={`fixed top-0 w-full p-4 transition-transform duration-300 z-50 ${
+          showNavbar ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <Container className="flex items-center justify-between py-4">
+          {/* Logo + desktop links */}
+          <div className="flex items-end gap-4">
+            <h1 className="text-2xl font-bold text-white">Dr. Ruma</h1>
+            <div className="hidden md:flex gap-6 text-sm text-white">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition duration-300 font-medium"
-                  onClick={() => setIsOpen(false)}
+                  href={item.path}
+                  className="hover:text-accent transition"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
-          </motion.div>
+          </div>
+
+          {/* Desktop contact */}
+          <div className="lg:flex items-center gap-4 hidden">
+            <Link
+              href="tel:+8801781131905"
+              className="hover:opacity-90 flex items-center text-white"
+            >
+              <img src="/contact.svg" alt="" /> <span>+8801781131905</span>
+            </Link>
+          </div>
+
+          {/* Mobile toggle */}
+          <div className="lg:hidden">
+            <button onClick={() => setOpen(!open)} className="p-2 text-white">
+              {open ? <HiOutlineX size={24} /> : <HiOutlineMenu size={24} />}
+            </button>
+          </div>
+        </Container>
+      </header>
+
+      {/* The mobile drawer menu, now outside the header */}
+      <AnimatePresence>
+        {open && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 bg-black/50 z-[55]"
+            />
+
+            {/* Drawer */}
+            <motion.div
+              key="mobileMenu"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={menuVariants}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-0 right-0 h-full w-[80%] bg-primary/95 text-white z-[60] shadow-lg"
+            >
+              <button
+                onClick={() => setOpen(!open)}
+                className="p-2 text-white ml-5 mt-10"
+              >
+                <HiOutlineX size={32} />
+              </button>
+              <div className="p-8 pl-16 flex flex-col gap-4 text-lg">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.path}
+                    className="py-2 hover:text-accent transition"
+                    onClick={() => setOpen(!open)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <button
+                  onClick={() => setOpen(false)}
+                  className="mt-4 bg-white text-primary px-5 py-3 rounded-lg font-semibold hover:bg-primary-light transition"
+                >
+                  Book Appointment
+                </button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
-};
-
-export default Navbar;
+}
