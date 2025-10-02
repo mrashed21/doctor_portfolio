@@ -1,27 +1,97 @@
-import React from "react";
+import { Calendar, DollarSign, FileText, Stethoscope } from "lucide-react";
 import Container from "../Container/Container";
 
 const steps = [
-  { title: "Book an Appointment", desc: "Choose date & time, quick confirmation." },
-  { title: "Conduct Checkup", desc: "Detailed consultation & diagnosis." },
-  { title: "Perform Treatment", desc: "Surgical or non-surgical plan." },
-  { title: "Prescribe & Payment", desc: "Secure payment and post-op care." },
+  {
+    title: "Book an Appointment",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    Icon: Calendar,
+  },
+  {
+    title: "Conduct Checkup",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    Icon: FileText,
+  },
+  {
+    title: "Perform Treatment",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    Icon: Stethoscope,
+  },
+  {
+    title: "Prescribe & Payment",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    Icon: DollarSign,
+  },
 ];
 
-export default function Process() {
+const Process = () => {
   return (
     <section className="py-16 bg-white">
       <Container>
-        <h3 className="text-3xl font-bold text-center text-deep">My Working Process</h3>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-          {steps.map((s, i) => (
-            <div key={i} data-aos="fade-up" data-aos-delay={i*100} className="bg-primary-light p-6 rounded-2xl text-deep shadow">
-              <div className="text-sm font-semibold">{s.title}</div>
-              <p className="mt-3 text-sm text-gray-600">{s.desc}</p>
+        <h3 className="text-3xl font-bold text-center text-gray-800 mb-16">
+          My Working Process
+        </h3>
+
+        {/* Main Grid: Timeline Steps (Left) and Image Collage (Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* LEFT COLUMN: Vertical Timeline */}
+          <div className="relative space-y-12">
+            {/* Vertical Line */}
+            <div className="absolute left-5 top-0 bottom-0 w-1 bg-green-200 z-0"></div>
+
+            {/* Map through Steps */}
+            {steps.map((s, i) => (
+              <div
+                key={i}
+                data-aos="fade-right"
+                data-aos-delay={i * 200}
+                className="flex items-start relative z-10"
+              >
+                {/* Icon Circle */}
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg">
+                  <s.Icon className="w-5 h-5" />
+                </div>
+
+                {/* Content */}
+                <div className="ml-8 pt-1 max-w-md">
+                  <h4 className="text-xl font-bold text-gray-800 mb-1">
+                    {s.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* RIGHT COLUMN: Image Collage */}
+          <div className="relative hidden lg:block h-[500px]">
+            {/* Large Image (Uterus Model) */}
+            <div className="absolute right-0 top-0 w-[80%] h-[80%] rounded-xl overflow-hidden shadow-2xl z-10">
+              {/* Mock image - replace with your actual uterus model image */}
+              <img
+                src="/working_process_main.png"
+                alt="Medical Model"
+                className="w-full h-full object-cover"
+              />
             </div>
-          ))}
+
+            {/* Bottom-Left Doctor Image */}
+            <div className="absolute left-[5%] bottom-0 w-[55%] h-[35%] rounded-xl overflow-hidden shadow-xl z-20">
+              {/* Mock image - replace with your actual doctor image */}
+              <img
+                src="/working_process_two.png"
+                alt="Doctor"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Green Accent Bar (Behind the large image) */}
+            {/* <div className="absolute right-[5%] bottom-0 w-[20px] h-[75%] bg-green-500 z-0"></div> */}
+          </div>
         </div>
       </Container>
     </section>
   );
-}
+};
+
+export default Process;
