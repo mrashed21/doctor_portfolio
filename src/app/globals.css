@@ -67,3 +67,19 @@ body {
 [data-aos][data-aos][data-aos-delay] {
   transition-delay: 0s !important;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+[data-aos] {
+  overflow: hidden; /* Hide overflow caused by animations */
+}
+
+.animated-element {
+  max-width: 100vw;
+  contain: layout;
+}
