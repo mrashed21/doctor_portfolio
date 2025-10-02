@@ -1,44 +1,123 @@
 "use client";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import Container from "../Container/Container";
 
+const IconPlaceholder = ({ className = "w-6 h-6" }) => (
+  <div className={`bg-green-50 text-green-700 p-2 rounded-lg ${className}`}>
+    <img src="/service_icon.svg" alt="icon" />
+  </div>
+);
+
 const cards = [
-  { title: "Endometriosis", desc: "Diagnosis & minimally invasive treatment." },
-  { title: "Ovarian Cysts", desc: "Monitoring and laparoscopic solutions." },
-  { title: "Cervical Cancer", desc: "Screening, vaccination and treatment." },
-  { title: "Uterine Fibroids", desc: "Uterine-preserving options & surgery." },
-  { title: "Infertility Care", desc: "Fertility assessment & IVF referrals." },
-  { title: "Prenatal Care", desc: "Pregnancy monitoring & delivery plans." },
+  {
+    title: "Endometriosis",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding, causing pain and heavy bleeding.",
+  },
+  {
+    title: "Ovarian Cysts",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding, causing pain and heavy bleeding.",
+  },
+  {
+    title: "Cervical Cancer",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding, causing pain and heavy bleeding.",
+  },
+  {
+    title: "Uterine Fibroids",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding, causing pain and heavy bleeding.",
+  },
+  {
+    title: "Uterine Fibroids",
+    desc: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding, causing pain and heavy bleeding.",
+  },
 ];
 
-export default function Services() {
+const Services = () => {
+  const serviceCards = cards.slice(0, 5);
   return (
     <section id="services" className="py-16 bg-white">
       <Container>
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-deep">My Medical Services</h2>
-          <p className="text-gray-600 mt-2">
-            Comprehensive womens healthcare services focusing on evidence-based
-            care.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="col-span-1  space-y-4 pt-10 pb-4">
+            <p className="text-green-600 font-semibold text-sm tracking-wider">
+              What I Provide
+            </p>
+            <h2 className="text-5xl font-extrabold text-gray-800">
+              My Medical <br /> servicess
+            </h2>
+            <p className="text-gray-500 mt-2 pr-4">
+              Non-cancerous tumors that grow in the uterus, often causing pain
+              and heavy bleeding.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cards.map((c, i) => (
+          {serviceCards.map((c, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: false, amount: 0.2 }} // 👈 animate every time in view
-              className="bg-white border rounded-2xl p-6 shadow"
+              viewport={{ once: false, amount: 0.2 }}
+              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm transition hover:shadow-lg"
             >
-              <h3>{c.title}</h3>
-              <p>{c.desc}</p>
+              <IconPlaceholder className="w-10 h-10 mb-4" />
+
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {c.title}
+              </h3>
+              <p className="text-sm text-gray-500 mb-4">{c.desc}</p>
+
+              <a
+                href="#"
+                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition"
+              >
+                Read More
+              </a>
             </motion.div>
           ))}
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: serviceCards.length * 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
+            className="relative col-span-1 sm:col-span-2 lg:col-span-2  bg-gray-900 rounded-xl overflow-hidden text-white p-6 flex  justify-between"
+          >
+          
+
+            <div className="relative z-10 flex flex-col h-full">
+              <h3 className="text-2xl font-bold mb-4">
+                I Provide <br /> Best Medical <br /> Treatment.
+              </h3>
+              <p className="text-sm text-gray-300 flex-grow">
+                Dr. Runa Akhtar is a highly experienced and compassionate
+                doctor.
+              </p>
+
+              <Link
+                href="/"
+                className="flex items-center space-x-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition"
+              >
+                <span className="text-white bg-blue-600 rounded-full p-2">
+                  <ArrowUpRight className="w-5 h-5" />
+                </span>
+                <span className="hidden sm:inline">BOOK AN APPOINTMENT</span>
+              </Link>
+
+            </div>
+            <div className="flex items-end justify-between border-l-2 border-b-2 border-dashed border-white p-2 ">
+              <img
+                src="/service_image.png"
+                alt="Doctor"
+                className="w-56 h-56 rounded-lg object-cover "
+              />
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>
   );
-}
+};
+
+export default Services;
