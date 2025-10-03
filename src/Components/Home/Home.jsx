@@ -3,7 +3,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import Footer from "../Shared/Navbar/Footer";
 import About from "./About";
 import Appointment from "./Appointment";
 import Awards from "./Awards";
@@ -11,6 +10,7 @@ import Blog from "./Blog";
 import Experience from "./Experience";
 import Hero from "./Hero";
 import Process from "./Process";
+import Publications from "./Publications";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
 
@@ -33,9 +33,9 @@ const Home = () => {
       <Process />
       <Experience />
       <Testimonials />
+      <Publications />
       <Blog />
       <Awards />
-      <Footer />
     </section>
   );
 };
