@@ -37,16 +37,16 @@ const Services = () => {
   const serviceCards = cards.slice(0, 5);
   return (
     <section id="services" className="py-16 bg-white">
-      <Container>
+      <Container className="px-5">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="col-span-1  space-y-4 pt-10 pb-4">
             <p className="text-green-600 font-semibold text-sm tracking-wider">
               What I Provide
             </p>
-            <h2 className="text-5xl font-extrabold text-gray-800">
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-gray-800">
               My Medical <br /> servicess
             </h2>
-            <p className="text-gray-500 mt-2 pr-4">
+            <p className="text-gray-500 lg:mt-2 pr-4">
               Non-cancerous tumors that grow in the uterus, often causing pain
               and heavy bleeding.
             </p>

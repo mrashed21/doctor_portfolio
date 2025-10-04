@@ -5,11 +5,11 @@ const HeroSection = () => {
   return (
     <div className="relative bg-[url('/hero_banner.jpg')] bg-cover bg-center bg-no-repeat lg:pt-24 pb-12 overflow-hidden min-h-screen flex items-center">
       {/* Main Content Container */}
-      <Container className="">
+      <Container className="px-5">
         <section className="flex flex-col lg:flex-row items-center justify-between w-full">
           {/* leftside */}
           <div className="w-full lg:w-auto pt-20 lg:pt-0">
-            <h1 className="text-2xl lg:text-6xl font-bold text-white">
+            <h1 className="text-2xl lg:text-6xl mt-10 lg:mt-0 font-bold text-white">
               Trusted & Care for Women's Health.
             </h1>
             <p className="text-white/80 mt-5 text-sm lg:text-base text-justify font-medium">
