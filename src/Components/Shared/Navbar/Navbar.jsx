@@ -2,14 +2,15 @@
 import Container from "@/Components/Container/Container";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
-export default function Navbar() {
+const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const pathname = usePathname();
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -67,7 +68,6 @@ export default function Navbar() {
         }`}
       >
         <Container className="flex items-center justify-between py-4">
-          {/* Logo + desktop links */}
           <div className="flex items-end gap-4">
             <h1 className="text-2xl font-bold text-white">Dr. Ruma</h1>
             <div className="hidden md:flex gap-6 text-sm text-white">
@@ -75,7 +75,9 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.path}
-                  className="hover:text-accent transition"
+                  className={`hover:text-accent transition ${
+                    pathname === item.path ? "text-accent font-semibold" : ""
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -137,8 +139,10 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     href={item.path}
-                    className="py-2 hover:text-accent transition"
-                    onClick={() => setOpen(!open)}
+                    className={`py-2 hover:text-accent transition ${
+                      pathname === item.path ? "text-accent font-semibold" : ""
+                    }`} // 👈 active class for mobile too
+                    onClick={() => setOpen(false)}
                   >
                     {item.name}
                   </Link>
@@ -156,4 +160,6 @@ export default function Navbar() {
       </AnimatePresence>
     </>
   );
-}
+};
+
+export default Navbar;
