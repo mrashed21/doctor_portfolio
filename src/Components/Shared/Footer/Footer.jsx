@@ -1,13 +1,6 @@
+import Container from "@/Components/Container/Container";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
-
-const Container = ({ children, className = "" }) => {
-  return (
-    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
-      {children}
-    </div>
-  );
-};
 
 // Mock Data for Quick Links and Company Links
 const quickLinks = [
@@ -44,7 +37,7 @@ const paymentIcons = [
 const Footer = () => {
   return (
     <footer className="bg-[#191928] text-gray-300">
-      <Container>
+      <Container className="px-5">
         <div className="pt-12 md:pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8">
           {/* Logo and Newsletter Section */}
           <div className="lg:col-span-3 lg:pr-8">
