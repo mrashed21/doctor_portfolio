@@ -85,10 +85,10 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: serviceCards.length * 0.2 }}
             viewport={{ once: false, amount: 0.2 }}
-            className="relative col-span-1 sm:col-span-2 lg:col-span-2  bg-gray-900 rounded-xl overflow-hidden text-white p-6 flex  justify-between"
+            className="relative col-span-1 sm:col-span-2 lg:col-span-2  bg-gray-900 rounded-xl overflow-hidden text-white p-6 flex  flex-col lg:flex-row justify-between"
           >
             <div className="relative z-10 flex flex-col h-full">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="lg:text-2xl font-bold mb-4">
                 I Provide <br /> Best Medical <br /> Treatment.
               </h3>
               <p className="text-sm text-gray-300 flex-grow">
@@ -98,7 +98,7 @@ const Services = () => {
 
               <Link
                 href="/"
-                className="flex items-center space-x-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition"
+                className="lg:flex items-center space-x-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition hidden "
               >
                 <span className="hidden sm:inline text-white">
                   BOOK AN APPOINTMENT
@@ -108,12 +108,24 @@ const Services = () => {
                 </span>
               </Link>
             </div>
-            <div className="flex items-end justify-between border-l-2 border-b-2 border-dashed border-white p-2 rounded-bl-lg">
-              <img
-                src="/service_image.png"
-                alt="Doctor"
-                className="w-56 h-56 rounded-lg object-cover "
-              />
+
+            <div className="flex flex-col items-end justify-between  ">
+              <div className="border-l-2 border-b-2 border-dashed border-white p-2 rounded-bl-lg">
+                <img
+                  src="/service_image.png"
+                  alt="Doctor"
+                  className="w-56 h-56 rounded-lg object-cover "
+                />
+              </div>
+              <Link
+                href="/"
+                className="lg:hidden mt-5 items-center space-x-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition flex "
+              >
+                <span className="inline text-white">BOOK AN APPOINTMENT</span>
+                <span className="text-white bg-blue-600 rounded-full p-2">
+                  <ArrowUpRight className="w-5 h-5" />
+                </span>
+              </Link>
             </div>
           </motion.div>
         </div>
