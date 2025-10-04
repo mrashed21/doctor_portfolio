@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   return (
-    <section>
+    <section className="border-red-500">
       <Hero />
       <Services />
       <About />

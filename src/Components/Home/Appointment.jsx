@@ -87,7 +87,7 @@ const Appointment = () => {
   return (
     <section
       id="appointment"
-      className="flex justify-center items-center py-20 bg-gray-100 min-h-screen relative"
+      className="flex justify-center items-center py-10 lg:py-20 bg-gray-100 min-h-screen relative"
     >
       {/* Background Split */}
       <div className="absolute inset-0 grid grid-cols-2">
@@ -106,9 +106,9 @@ const Appointment = () => {
         </div>
       </div>
 
-      <Container className="relative z-10 flex justify-center w-full">
+      <Container className="relative z-10 flex justify-center w-full px-5">
         <div
-          className="w-full max-w-4xl bg-white p-8 sm:p-10 rounded-xl shadow-2xl"
+          className="w-full max-w-4xl bg-white p-3 lg:p-8 sm:p-10 rounded-xl shadow-2xl"
           data-aos="fade-up"
         >
           {/* Heading */}
@@ -116,7 +116,7 @@ const Appointment = () => {
             <p className="text-green-600 font-semibold text-sm mb-1">
               Request a Consultation
             </p>
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-xl lg:text-3xl font-bold text-gray-800">
               Make an Appointment
             </h2>
           </div>
@@ -223,7 +223,7 @@ const Appointment = () => {
                   setFormData((prev) => ({ ...prev, date }));
                 }}
                 placeholderText="Select Date"
-                className="w-[400px] bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 
+                className="w-[290px] lg:w-[400px] bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 
                            focus:outline-none focus:ring-1 focus:ring-blue-500"
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
@@ -235,7 +235,7 @@ const Appointment = () => {
               <p className="text-sm font-medium text-gray-700 mt-2">
                 Select Time
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className=" grid grid-cols-2 lg:flex lg:flex-wrap gap-2">
                 {timeSlots.map((time, index) => (
                   <div
                     key={index}
@@ -253,7 +253,7 @@ const Appointment = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg 
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-sm lg:text-lg 
                            hover:bg-blue-700 transition mt-6 cursor-pointer"
               >
                 Book Appointment

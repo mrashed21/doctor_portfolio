@@ -123,7 +123,7 @@ const Services = () => {
               >
                 <span className="inline text-white">BOOK AN APPOINTMENT</span>
                 <span className="text-white bg-blue-600 rounded-full p-2">
-                  <ArrowUpRight className="w-5 h-5" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
             </div>
