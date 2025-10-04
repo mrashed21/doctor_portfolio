@@ -27,7 +27,9 @@ const Service = () => {
       />
       <MyMedicalServices />
       <Appointment />
-      <Blog />
+      <section className="py-10">
+        <Blog />
+      </section>
     </section>
   );
 };

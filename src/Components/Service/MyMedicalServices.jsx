@@ -1,55 +1,55 @@
-import { ArrowRight, Leaf } from "lucide-react"; // Using Leaf as a generic icon for the service badge
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Container from "../Container/Container";
 
-// Mock Data for the 8 Service Cards
 const services = [
   {
     title: "Endometriosis",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/F0F4F8/333333?text=Doctor+and+Uterus+Model",
+    img: "/service_one.png",
   },
   {
     title: "Ovarian Cysts",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/E0F2F1/333333?text=Surgery+Hand",
+    img: "/service_two.png",
   },
   {
     title: "Cervical Cancer",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/B9E6A6/333333?text=Pregnancy+Checkup",
+    img: "/service_three.png",
   },
   {
     title: "Uterine Fibroids",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/D1F0CC/333333?text=Uterus+Diagram",
+    img: "/service_four.png",
   },
   {
     title: "Endometriosis",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/E6EBF0/333333?text=Doctor+on+Computer",
+    img: "/service_five.png",
   },
   {
     title: "Ovarian Cysts",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/F0F0F0/333333?text=Consultation+Room",
+    img: "/service_six.png",
   },
   {
     title: "Cervical Cancer",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/CCE5CC/333333?text=Medical+Model",
+    img: "/service_seven.png",
   },
   {
     title: "Uterine Fibroids",
     description:
       "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "https://via.placeholder.com/300x200/A0D1B0/333333?text=Nurse+with+Child",
+    img: "/service_eight.png",
   },
 ];
 
@@ -57,35 +57,32 @@ const ServiceCard = ({ service, index }) => (
   <div
     className="rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden"
     data-aos="fade-up"
-    data-aos-delay={index * 50} // Staggered animation
+    data-aos-delay={index * 50}
   >
-    {/* Image Section */}
-    <div className="relative h-48 overflow-hidden">
+    <div className="relative h-48">
       <img
         src={service.img}
         alt={service.title}
         className="w-full h-full object-cover transition duration-500 hover:scale-105"
       />
 
-      {/* Green Icon Badge (Overlays the bottom-left corner of the image) */}
-      <div className="absolute -bottom-6 left-4 p-3 rounded-full bg-green-600 text-white shadow-xl">
-        <Leaf className="w-6 h-6" />
+      <div className="absolute -bottom-6 left-4 p-3 z-40 rounded-full bg-green-600 text-white shadow-xl">
+        <img src="/icon_nine.svg" alt="hello" className="w-10 h-10 " />
       </div>
     </div>
 
-    {/* Text Content */}
     <div className="p-5 pt-10">
       <h4 className="font-bold text-xl text-gray-800 mb-2">{service.title}</h4>
       <p className="text-sm text-gray-500 mb-4">{service.description}</p>
 
       {/* Read More Link */}
-      <a
-        href="#"
-        className="inline-flex items-center space-x-1 text-green-600 font-semibold text-sm border-t border-green-200 pt-3 group"
+      <Link
+        href="/"
+        className="inline-flex items-center space-x-1 text-blue-500 font-semibold text-sm  pt-3 group"
       >
         <span>Read More</span>
-        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-      </a>
+        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x- -rotate-45" />
+      </Link>
     </div>
   </div>
 );

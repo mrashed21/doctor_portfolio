@@ -1,8 +1,6 @@
 import { Play } from "lucide-react";
 import Link from "next/link";
 import Container from "../Container/Container";
-
-// Placeholder image for the background
 const JourneyImage = "/work.webp";
 
 const WorkingJourney = () => {
