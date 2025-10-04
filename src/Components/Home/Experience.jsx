@@ -32,7 +32,7 @@ const Experience = () => {
       }}
     >
       <Container>
-        <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
+        <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-12">
           Working Experience
         </h3>
 
@@ -44,19 +44,21 @@ const Experience = () => {
               data-aos="fade-up"
               data-aos-delay={i * 100}
             >
-              <div className="h-40 overflow-hidden">
+              <div className="h-36 lg:h-40 overflow-hidden">
                 <img
                   src={h.img}
                   alt={h.name}
-                  className="w-[180px] rounded-md h-full object-cover"
+                  className="w-[150px] h-[120px] lg:w-[180px] rounded-md lg:h-full object-cover"
                 />
               </div>
 
-              <div className="p-5">
-                <h4 className="font-bold text-xl text-gray-800">{h.name}</h4>
+              <div className="lg:p-5">
+                <h4 className="font-bold text-lg lg:text-xl text-gray-800">
+                  {h.name}
+                </h4>
 
                 <div className="flex justify-between items-baseline mt-2 mb-3">
-                  <p className="text-base font-semibold text-gray-700">
+                  <p className="text-sm lg:text-base font-semibold text-gray-700">
                     {h.role}
                   </p>
                   <p className="text-sm text-gray-500 font-light">

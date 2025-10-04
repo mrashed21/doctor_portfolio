@@ -47,7 +47,7 @@ const StarRating = () => (
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-white relative">
+    <section className="lg:py-20 bg-white relative">
       {/* Background Image */}
       <div
         className="absolute inset-0 z-0 pointer-events-none bg-no-repeat bg-right"
@@ -71,14 +71,14 @@ const Testimonials = () => {
           </div>
           <a
             href="#"
-            className="mt-4 md:mt-0 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md"
+            className="mt-4 md:mt-0 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md text-sm"
           >
             I NEED HELP
           </a>
         </div>
 
         {/* Title */}
-        <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
+        <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
           What Patients are Saying!
         </h3>
 
@@ -99,7 +99,6 @@ const Testimonials = () => {
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="!h-auto flex">
               <div
-
                 className="bg-white p-6 rounded-2xl shadow border border-gray-100 flex flex-col w-full z-30"
                 style={{ height: "100%" }}
                 data-aos="fade-up"
