@@ -76,9 +76,9 @@ const BlogCard = ({ post, i }) => (
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-16 bg-white">
+    <section id="blog" className="lg:py-16 bg-white">
       <Container>
-        <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
+        <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
           Best Helpful Blog
         </h3>
 

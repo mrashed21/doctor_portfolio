@@ -135,8 +135,8 @@ const Testimonials = () => {
       {/* Pagination Style */}
       <style jsx global>{`
         .swiper-pagination {
-          bottom: 20px !important;
-          margin-top: 20px;
+          bottom: 0px !important;
+          margin-top: 25px;
           text-align: center;
           position: relative !important;
         }

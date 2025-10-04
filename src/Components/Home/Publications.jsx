@@ -73,7 +73,7 @@ const Publications = () => {
           <p className="text-green-600 font-semibold text-sm tracking-wider">
             Research and Publications
           </p>
-          <h2 className="text-4xl font-extrabold text-gray-800 leading-tight">
+          <h2 className="text-2xl lg:text-4xl font-extrabold text-gray-800 leading-tight">
             Discover My Work in Medical Science
           </h2>
           <p className="text-gray-500 mt-2 text-base">
@@ -161,8 +161,8 @@ const PublicationCard = ({ pub, i }) => (
 
     <style jsx global>{`
       .swiper-pagination {
-        bottom: 20px !important;
-        margin-top: 20px;
+        bottom: 0px !important;
+        margin-top: 25px;
         text-align: center;
         position: relative !important;
       }
