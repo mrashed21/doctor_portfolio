@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
@@ -25,7 +24,6 @@ const testimonials = [
     text: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding. Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
     avatar: "/about_three.png",
   },
-
   {
     name: "Shila Ghosh",
     clinic: "Best Care",
@@ -34,7 +32,6 @@ const testimonials = [
   },
 ];
 
-// Reusable Star Rating Component
 const StarRating = () => (
   <div className="flex space-x-0.5 text-yellow-400">
     {"★"
@@ -51,15 +48,18 @@ const StarRating = () => (
 const Testimonials = () => {
   return (
     <section className="py-20 bg-white relative">
-      {/* Background Pattern Mockup (DNA/Hexagon) */}
+      {/* Background Image */}
       <div
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
-        style={{ backgroundImage: "url(/mock-hex-pattern.svg)" }} // Replace with your actual pattern
+        className="absolute inset-0 z-0 pointer-events-none bg-no-repeat bg-right"
+        style={{ backgroundImage: "url(/testimonial_bg.svg)" }}
       ></div>
-
       <Container className="relative z-10">
-        {/* TOP BANNER: Action Callout */}
-        <div className="border-t border-b border-dashed border-gray-300 py-6 mb-16 px-4 flex flex-col md:flex-row justify-between items-center bg-white shadow-sm">
+        {/* Banner */}
+        <div
+          data-aos="zoom-in-down"
+          data-aos-delay={100}
+          className="border-t border-b border-dashed border-gray-300 py-6 mb-16 px-4 flex flex-col md:flex-row justify-between items-center bg-white shadow-sm"
+        >
           <div className="text-center md:text-left">
             <h4 className="text-xl font-bold text-gray-800 mb-1">
               Do You Have Health Problems
@@ -77,11 +77,12 @@ const Testimonials = () => {
           </a>
         </div>
 
-        {/* Testimonials Title */}
+        {/* Title */}
         <h3 className="text-3xl font-bold text-center text-gray-800 mb-10">
           What Patients are Saying!
         </h3>
-        {/* SWIPER COMPONENT */}
+
+        {/* Swiper */}
         <Swiper
           modules={[Pagination]}
           spaceBetween={30}
@@ -89,44 +90,28 @@ const Testimonials = () => {
           pagination={{ clickable: true }}
           loop={true}
           breakpoints={{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-            },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
           className="pb-16"
+          style={{ height: "auto" }}
         >
           {testimonials.map((t, i) => (
-            // 1. SwiperSlide takes the height of the tallest slide
-            <SwiperSlide key={i} className="h-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true, amount: 0.2 }}
-                // 2. Card itself must stretch to full height
-                // 3. Use flex-col and justify-between to push the footer to the bottom
-                className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 h-full flex flex-col"
+            <SwiperSlide key={i} className="!h-auto flex">
+              <div
+
+                className="bg-white p-6 rounded-2xl shadow border border-gray-100 flex flex-col w-full z-30"
+                style={{ height: "100%" }}
+                data-aos="fade-up"
+                data-aos-delay={i * 100}
               >
-                {/* Content Wrapper (everything above the footer) */}
                 <div className="flex-grow">
-                  {/* Quote Icon */}
                   <div className="text-4xl text-green-300 font-serif opacity-70 mb-4">
                     ❝
                   </div>
-
-                  {/* Review Text */}
                   <p className="text-gray-600 text-base mb-6">{t.text}</p>
                 </div>
-
-                {/* Patient Info (Footer - fixed position at the bottom) */}
                 <div className="mt-auto">
-                  {" "}
-                  {/* mt-auto helps push it down */}
                   <StarRating />
                   <div className="flex items-center space-x-3 mt-2">
                     <img
@@ -142,13 +127,38 @@ const Testimonials = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </Container>
 
-      {/* Note: Swiper automatically handles the pagination dots in the custom-styled `swiper-pagination` */}
+      {/* Pagination Style */}
+      <style jsx global>{`
+        .swiper-pagination {
+          bottom: 20px !important;
+          margin-top: 20px;
+          text-align: center;
+          position: relative !important;
+        }
+        .swiper-pagination-bullet {
+          margin: 0 6px !important;
+          width: 10px;
+          height: 10px;
+          background: #00984a !important;
+          opacity: 0.5; /* inactive dots at 50% opacity */
+          transition: transform 0.3s, opacity 0.3s;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1 !important; /* active dot fully opaque */
+          transform: scale(1.2);
+          background: #00984a !important;
+        }
+        .swiper-slide {
+          height: auto !important;
+          display: flex !important;
+        }
+      `}</style>
     </section>
   );
 };

@@ -68,12 +68,15 @@ const Services = () => {
               </h3>
               <p className="text-sm text-gray-500 mb-4">{c.desc}</p>
 
-              <a
-                href="#"
-                className="text-sm text-blue-600 hover:text-blue-700 font-medium transition"
+              <Link
+                href="/"
+                className="relative text-sm text-blue-600 hover:text-blue-700 font-medium transition 
+             after:content-[''] after:absolute after:left-0 after:-bottom-0.5 
+             after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 
+             hover:after:w-full"
               >
                 Read More
-              </a>
+              </Link>
             </motion.div>
           ))}
 
@@ -84,8 +87,6 @@ const Services = () => {
             viewport={{ once: false, amount: 0.2 }}
             className="relative col-span-1 sm:col-span-2 lg:col-span-2  bg-gray-900 rounded-xl overflow-hidden text-white p-6 flex  justify-between"
           >
-          
-
             <div className="relative z-10 flex flex-col h-full">
               <h3 className="text-2xl font-bold mb-4">
                 I Provide <br /> Best Medical <br /> Treatment.
@@ -99,14 +100,15 @@ const Services = () => {
                 href="/"
                 className="flex items-center space-x-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition"
               >
+                <span className="hidden sm:inline text-white">
+                  BOOK AN APPOINTMENT
+                </span>
                 <span className="text-white bg-blue-600 rounded-full p-2">
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
-                <span className="hidden sm:inline">BOOK AN APPOINTMENT</span>
               </Link>
-
             </div>
-            <div className="flex items-end justify-between border-l-2 border-b-2 border-dashed border-white p-2 ">
+            <div className="flex items-end justify-between border-l-2 border-b-2 border-dashed border-white p-2 rounded-bl-lg">
               <img
                 src="/service_image.png"
                 alt="Doctor"

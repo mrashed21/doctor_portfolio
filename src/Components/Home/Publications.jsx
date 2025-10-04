@@ -1,18 +1,19 @@
+import Link from "next/link";
 import Container from "../Container/Container";
 // --- Swiper Imports ---
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 const publications = [
   {
     id: 1,
     year: "2023",
     title: "Hormonal Therapy & Fertility",
     journal: "Journal of Reproductive Health",
-    image:
-      "https://via.placeholder.com/300x200/F0F4F8/333333?text=PUBLISHED+PAPER",
+    image: "/research_one.png",
     link: "/",
   },
   {
@@ -20,8 +21,7 @@ const publications = [
     year: "2023",
     title: "Understanding Uterine Fibroids",
     journal: "Clinical Gynecology Review",
-    image:
-      "https://via.placeholder.com/300x200/E8F0F5/555555?text=STACK+OF+PAPERS",
+    image: "/research_two.png",
     link: "/",
   },
   {
@@ -29,8 +29,7 @@ const publications = [
     year: "2023",
     title: "Cervical Cancer Screening",
     journal: "Research in Women's Health",
-    image:
-      "https://via.placeholder.com/300x200/D0DDE7/777777?text=RESEARCH+PAPER",
+    image: "/research_three.png",
     link: "/",
   },
   {
@@ -38,8 +37,7 @@ const publications = [
     year: "2024",
     title: "Minimally Invasive Surgery",
     journal: "Laparoscopic Advances",
-    image:
-      "https://via.placeholder.com/300x200/BCC3CB/999999?text=SURGERY+STUDY",
+    image: "/research_one.png",
     link: "/",
   },
   {
@@ -47,50 +45,31 @@ const publications = [
     year: "2024",
     title: "Post-Menopausal Care Study",
     journal: "Journal of Senior Medicine",
-    image:
-      "https://via.placeholder.com/300x200/A0ACB9/BBBBBB?text=WOMEN+HEALTH",
+    image: "/research_two.png",
     link: "/",
   },
-  // Added two extra to clearly demonstrate the slide effect
+
   {
     id: 6,
     year: "2024",
     title: "Managing High-Risk Pregnancy",
     journal: "Obstetrics Today",
-    image:
-      "https://via.placeholder.com/300x200/90A2B0/DDDDDD?text=PREGNANCY+STUDY",
+    image: "/research_three.png",
     link: "/",
   },
 ];
 
-const DownloadIcon = ({ className = "w-4 h-4" }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-    <polyline points="7 10 12 15 17 10"></polyline>
-    <line x1="12" y1="15" x2="12" y2="3"></line>
-  </svg>
-);
-
 const Publications = () => {
-  // Check if there are more than 3 publications to enable Swiper on desktop
   const shouldEnableSwiper = publications.length > 3;
 
   return (
     <section id="publications" className="py-20 bg-white">
       <Container className="grid grid-cols-1 lg:grid-cols-4 gap-10 items-center">
-        {/* LEFT COLUMN: Section Title and Description */}
-        <div className="lg:col-span-1 space-y-4 pr-6">
+        <div
+          data-aos="fade-right"
+          data-aos-easing="ease-in-sine"
+          className="lg:col-span-1 space-y-4 pr-6"
+        >
           <p className="text-green-600 font-semibold text-sm tracking-wider">
             Research and Publications
           </p>
@@ -103,9 +82,7 @@ const Publications = () => {
           </p>
         </div>
 
-        {/* RIGHT COLUMNS: Publication Cards Container */}
         <div className="lg:col-span-3">
-          {/* Use grid layout if there are 3 or fewer items, or if the screen is large and you want a fixed 3-column view */}
           {!shouldEnableSwiper ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {publications.map((pub) => (
@@ -113,7 +90,6 @@ const Publications = () => {
               ))}
             </div>
           ) : (
-            // SWIPER SLIDER for dynamic data / mobile view
             <Swiper
               modules={[Pagination]}
               spaceBetween={30}
@@ -121,22 +97,22 @@ const Publications = () => {
               pagination={{ clickable: true }}
               loop={false}
               breakpoints={{
-                // 640px and above: 2 slides
                 640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
-                // 1024px and above: 3 slides (matching the original design grid)
+
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                   spaceBetween: 30,
                 },
               }}
-              className="pb-12" // Add padding for pagination dots
+              className="pb-12"
+              onSlideChange={() => AOS.refresh()}
             >
-              {publications.map((pub) => (
+              {publications.map((pub, i) => (
                 <SwiperSlide key={pub.id} className="h-auto">
-                  <PublicationCard pub={pub} />
+                  <PublicationCard pub={pub} i={i} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -147,10 +123,12 @@ const Publications = () => {
   );
 };
 
-// Extracted the card into a separate component for cleanliness
-const PublicationCard = ({ pub }) => (
-  <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl h-full flex flex-col">
-    {/* Publication Image */}
+const PublicationCard = ({ pub, i }) => (
+  <div
+    data-aos="fade-up"
+    data-aos-delay={i * 200}
+    className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl h-full flex flex-col"
+  >
     <div className="h-40 overflow-hidden">
       <img
         src={pub.image}
@@ -159,29 +137,53 @@ const PublicationCard = ({ pub }) => (
       />
     </div>
 
-    {/* Publication Details */}
     <div className="p-5 flex-grow flex flex-col justify-between">
       <div>
         <p className="text-sm text-gray-400 mb-2">{pub.year}</p>
         <h4 className="font-semibold text-lg text-gray-800 mb-2 leading-snug">
           {pub.title}
         </h4>
-        <div className="flex items-center text-xs text-gray-500 mb-5">
-          <DownloadIcon className="w-4 h-4 mr-1 text-gray-400" />
+        <div className="flex items-center text-xs gap-2 text-gray-500 mb-5">
+          <img src="/journal.svg" alt="icon" className="w-4" />
           <span>{pub.journal}</span>
         </div>
       </div>
 
-      {/* View Paper Button */}
-      <a
+      <Link
         href={pub.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-auto block w-full text-center bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300"
+        className="mt-auto block w-full text-center bg-green-600 text-white py-1 rounded-lg font-semibold hover:bg-green-700 transition duration-300"
       >
         View Paper
-      </a>
+      </Link>
     </div>
+
+    <style jsx global>{`
+      .swiper-pagination {
+        bottom: 20px !important;
+        margin-top: 20px;
+        text-align: center;
+        position: relative !important;
+      }
+      .swiper-pagination-bullet {
+        margin: 0 6px !important;
+        width: 10px;
+        height: 10px;
+        background: #00984a !important;
+        opacity: 0.5; /* inactive dots at 50% opacity */
+        transition: transform 0.3s, opacity 0.3s;
+      }
+      .swiper-pagination-bullet-active {
+        opacity: 1 !important; /* active dot fully opaque */
+        transform: scale(1.2);
+        background: #00984a !important;
+      }
+      .swiper-slide {
+        height: auto !important;
+        display: flex !important;
+      }
+    `}</style>
   </div>
 );
 

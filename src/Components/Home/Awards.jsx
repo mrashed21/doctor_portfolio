@@ -1,4 +1,3 @@
-import { Award, Medal, Shield, Star, Trophy } from "lucide-react"; // Assuming you use lucide-react for icons
 import Container from "../Container/Container";
 
 // Mock Data for Qualifications
@@ -8,38 +7,41 @@ const qualifications = [
     college: "Dhaka Medical College",
     degree: "MBBS (Bachelor of Medicine, Bachelor of Surgery)",
     duration: "Jan 2014 - Dec 2018",
-    img: "https://via.placeholder.com/80x80/2C3E50/FFFFFF?text=DMC", // Mock Image
+    img: "/award_one.png",
   },
   {
     id: 2,
     college: "Dhaka Medical College",
     degree: "FCPS (Obstetrics & Gynecology)",
     duration: "Jan 2019 - Present",
-    img: "https://via.placeholder.com/80x80/16A085/FFFFFF?text=FCPS",
+    img: "/award_two.png",
   },
   {
     id: 3,
     college: "Dhaka Medical College",
     degree: "MS (Master of Surgery in Ob & Gyn)",
     duration: "Jan 2019 - Present",
-    img: "https://via.placeholder.com/80x80/2980B9/FFFFFF?text=MS",
+    img: "/award_three.png",
   },
   {
     id: 4,
     college: "Dhaka Medical College",
     degree: "Best Doctor Award (2022)",
     duration: "Certified",
-    img: "https://via.placeholder.com/80x80/E67E22/FFFFFF?text=AWARD",
+    img: "/award_one.png",
   },
 ];
 
-// Mock Data for Minor Awards/Icons
 const minorAwards = [
-  { name: "Lasker Award", Icon: Trophy, color: "text-green-600" },
-  { name: "Medawar Medal", Icon: Medal, color: "text-red-500" },
-  { name: "Ascension Prize", Icon: Star, color: "text-yellow-500" },
-  { name: "Base prize", Icon: Shield, color: "text-blue-500" },
-  { name: "Winner Award", Icon: Award, color: "text-gray-400" },
+  { name: "Lasker Award", Icon: "/award_one.svg", color: "text-green-600" },
+  { name: "Medawar Medal", Icon: "/award_two.svg", color: "text-red-500" },
+  {
+    name: "Ascension Prize",
+    Icon: "/award_three.svg",
+    color: "text-yellow-500",
+  },
+  { name: "Base prize", Icon: "/award_four.svg", color: "text-blue-500" },
+  { name: "Winner Award", Icon: "/award_five.svg", color: "text-gray-400" },
 ];
 
 const Awards = () => {
@@ -51,16 +53,18 @@ const Awards = () => {
         </h3>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* LEFT COLUMN: Qualification List (lg:col-span-6) */}
           <div className="lg:col-span-6 space-y-4">
             {qualifications.map((q, i) => (
               <div
                 key={q.id}
-                className="bg-white p-4 rounded-xl shadow-md border border-gray-100 flex items-center space-x-4 transition hover:shadow-lg"
+                className="bg-white p-4 rounded-xl shadow-md border border-gray-100 flex items-center space-x-4 transition hover:shadow-lg relative"
                 data-aos="fade-right"
                 data-aos-delay={i * 100}
               >
-                {/* Image/Icon Placeholder */}
+                {/* Left colored bar */}
+                <div className="h-[80%] w-[10px] rounded-r bg-[#00984A] absolute -left-1 top-1/2 -translate-y-1/2"></div>
+
+                {/* Image */}
                 <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
                   <img
                     src={q.img}
@@ -69,34 +73,33 @@ const Awards = () => {
                   />
                 </div>
 
-                {/* Text Content */}
+                {/* Text info */}
                 <div className="flex-grow">
                   <h4 className="font-semibold text-lg text-gray-800">
                     {q.college}
                   </h4>
-                  <p className="text-sm text-gray-700">{q.degree}</p>
+                  <p className="text-xs text-gray-500 flex-shrink-0">
+                    {q.duration}
+                  </p>
                 </div>
 
-                {/* Duration/Date */}
-                <div className="text-right text-xs text-gray-500 flex-shrink-0">
-                  {q.duration}
+                {/* Center dashed line */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[80%] border-l-2 border-dashed border-gray-400"></div>
+
+                {/* Right info */}
+                <div className="ml-6">
+                  <p className="text-sm text-gray-700">{q.degree}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* RIGHT COLUMN: Awards Section (lg:col-span-6) */}
           <div
             className="lg:col-span-6 bg-white p-8 rounded-xl shadow-xl border border-gray-100 flex flex-col items-center text-center"
             data-aos="fade-left"
           >
-            {/* Main Award Trophy Mockup */}
             <div className="text-6xl text-orange-400 mb-4">
-              <Trophy
-                className="w-20 h-20 mx-auto"
-                fill="#fdb342"
-                stroke="#fdb342"
-              />
+              <img src="/award_one.svg" alt="" className="w-28 h-28" />
             </div>
             <h4 className="text-3xl font-bold text-gray-800 mb-2">
               Lasker Award
@@ -118,9 +121,9 @@ const Awards = () => {
                   className="flex flex-col items-center max-w-[80px] mb-4"
                 >
                   <div
-                    className={`p-2 rounded-full border-2 ${award.color} border-current mb-2`}
+                    className={`p-2 rounded-md border border-gray-300  mb-2`}
                   >
-                    <award.Icon className="w-6 h-6" />
+                    <img src={award.Icon} alt="award.Icon" />
                   </div>
                   <span className="text-xs text-gray-700 font-medium whitespace-nowrap">
                     {award.name}

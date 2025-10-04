@@ -32,14 +32,9 @@ const Process = () => {
           My Working Process
         </h3>
 
-        {/* Main Grid: Timeline Steps (Left) and Image Collage (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* LEFT COLUMN: Vertical Timeline */}
           <div className="relative space-y-12">
-            {/* Vertical Line */}
             <div className="absolute left-5 top-0 bottom-0 w-1 bg-green-200 z-0"></div>
-
-            {/* Map through Steps */}
             {steps.map((s, i) => (
               <div
                 key={i}
@@ -52,7 +47,6 @@ const Process = () => {
                   <s.Icon className="w-5 h-5" />
                 </div>
 
-                {/* Content */}
                 <div className="ml-8 pt-1 max-w-md">
                   <h4 className="text-xl font-bold text-gray-800 mb-1">
                     {s.title}
@@ -63,30 +57,23 @@ const Process = () => {
             ))}
           </div>
 
-          {/* RIGHT COLUMN: Image Collage */}
           <div className="relative hidden lg:block h-[500px]">
-            {/* Large Image (Uterus Model) */}
-            <div className="absolute right-0 top-0 w-[80%] h-[80%] rounded-xl overflow-hidden shadow-2xl z-10">
-              {/* Mock image - replace with your actual uterus model image */}
+            <div className=" w-[80%] h-[80%] bg-[#00984A] top-12 right-16 absolute"></div>
+            <div className="absolute right-0 top-0 w-[80%] h-[80%]  overflow-hidden shadow-2xl z-10">
               <img
                 src="/working_process_main.png"
                 alt="Medical Model"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-xl"
               />
             </div>
 
-            {/* Bottom-Left Doctor Image */}
             <div className="absolute left-[5%] bottom-0 w-[55%] h-[35%] rounded-xl overflow-hidden shadow-xl z-20">
-              {/* Mock image - replace with your actual doctor image */}
               <img
                 src="/working_process_two.png"
                 alt="Doctor"
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Green Accent Bar (Behind the large image) */}
-            {/* <div className="absolute right-[5%] bottom-0 w-[20px] h-[75%] bg-green-500 z-0"></div> */}
           </div>
         </div>
       </Container>

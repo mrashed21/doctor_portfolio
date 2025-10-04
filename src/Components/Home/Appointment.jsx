@@ -1,4 +1,4 @@
-import { ChevronDown, MapPin } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import Container from "../Container/Container";
@@ -15,29 +15,7 @@ const timeSlots = [
   "11:45 PM",
 ];
 
-const MapMockup = () => (
-  <div className="relative w-full h-32 bg-gray-50 rounded-lg border">
-    <img
-      src="https://via.placeholder.com/400x150/f5f5f5/333333?text=Map+View+Mockup"
-      alt="Clinic Location Map"
-      className="w-full h-full object-cover rounded-lg"
-    />
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-full">
-      <MapPin className="w-6 h-6 text-red-500" fill="red" />
-    </div>
-    <div className="absolute right-2 top-2 space-y-1 bg-white rounded-md p-1 shadow">
-      <div className="w-5 h-5 bg-gray-200 text-xs flex items-center justify-center">
-        +
-      </div>
-      <div className="w-5 h-5 bg-gray-200 text-xs flex items-center justify-center">
-        -
-      </div>
-    </div>
-  </div>
-);
-
 const StyledInput = ({
-  label,
   placeholder,
   type = "text",
   className = "",
@@ -46,23 +24,19 @@ const StyledInput = ({
   <div className="relative w-full">
     <input
       type={type}
-      className={`w-full bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 ${className}`}
+      className={`w-full bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 ${className}`}
       placeholder={placeholder}
       {...props}
     />
   </div>
 );
 
-const StyledSelect = ({
-  label,
-  placeholder,
-  options,
-  className = "",
-  ...props
-}) => (
+const StyledSelect = ({ placeholder, options, className = "", ...props }) => (
   <div className="relative w-full">
     <select
-      className={`appearance-none w-full bg-gray-50 p-3 rounded-lg text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 ${className}`}
+      className={`appearance-none w-full bg-gray-50 p-3 rounded-lg text-gray-400 
+                  focus:outline-none focus:ring-1 focus:ring-blue-500 ${className}`}
       {...props}
     >
       <option value="" disabled hidden>
@@ -108,7 +82,6 @@ const Appointment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // 🔗 You can replace console.log with API POST request
   };
 
   return (
@@ -138,6 +111,7 @@ const Appointment = () => {
           className="w-full max-w-4xl bg-white p-8 sm:p-10 rounded-xl shadow-2xl"
           data-aos="fade-up"
         >
+          {/* Heading */}
           <div className="mb-8 text-center">
             <p className="text-green-600 font-semibold text-sm mb-1">
               Request a Consultation
@@ -147,6 +121,7 @@ const Appointment = () => {
             </h2>
           </div>
 
+          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4"
@@ -173,11 +148,12 @@ const Appointment = () => {
                 onChange={handleChange}
               />
               <textarea
-                placeholder="Write a short brief..."
+                placeholder="Write here short brief..."
                 name="notes"
                 value={formData.notes}
                 onChange={handleChange}
-                className="w-full bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none h-28"
+                className="w-full bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 
+                           focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none h-28"
               />
             </div>
 
@@ -199,7 +175,6 @@ const Appointment = () => {
                 options={[
                   { label: "Male", value: "male" },
                   { label: "Female", value: "female" },
-                  { label: "Other", value: "other" },
                 ]}
               />
 
@@ -226,22 +201,33 @@ const Appointment = () => {
                   </label>
                   <span className="text-xs text-gray-500">10 AM - 1 PM</span>
                 </div>
-                <MapMockup />
+
+                {/* Google Map Embed */}
+                <div className="relative w-full rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d362.3843573770543!2d90.38164322518969!3d23.868751679035256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c573f4be7859%3A0xfe148d927ed0353a!2sClassic%20IT%20%26%20Sky%20Mart%20Ltd.!5e1!3m2!1sen!2sbd!4v1759552930993!5m2!1sen!2sbd"
+                    className="w-full h-32 sm:h-40 md:h-48 rounded-lg border border-gray-200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
 
-              <div className="relative w-full">
-                <DatePicker
-                  selected={startDate}
-                  onChange={(date) => {
-                    setStartDate(date);
-                    setFormData((prev) => ({ ...prev, date }));
-                  }}
-                  placeholderText="Select Date"
-                  className="w-full bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  dateFormat="dd/MM/yyyy"
-                  minDate={new Date()} 
-                />
-              </div>
+              {/* Date Picker */}
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => {
+                  setStartDate(date);
+                  setFormData((prev) => ({ ...prev, date }));
+                }}
+                placeholderText="Select Date"
+                className="w-[400px] bg-gray-50 p-3 rounded-lg text-gray-700 placeholder-gray-400 
+                           focus:outline-none focus:ring-1 focus:ring-blue-500"
+                dateFormat="dd/MM/yyyy"
+                minDate={new Date()}
+              />
             </div>
 
             {/* TIME + BUTTON */}
@@ -267,7 +253,8 @@ const Appointment = () => {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 transition mt-6"
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg 
+                           hover:bg-blue-700 transition mt-6 cursor-pointer"
               >
                 Book Appointment
               </button>

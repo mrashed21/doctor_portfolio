@@ -18,8 +18,8 @@ const Home = () => {
   useEffect(() => {
     AOS.init({
       duration: 900,
-      once: false, // 👈 animate again every time element re-enters viewport
-      mirror: true, // 👈 animate out on scroll up
+      once: false,
+      mirror: true,
       offset: 100,
     });
   }, []);

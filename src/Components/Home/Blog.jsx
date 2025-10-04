@@ -1,8 +1,9 @@
-import { ArrowUpRight, Calendar } from "lucide-react"; // Using Lucide icons for Calendar and Arrow
+import { ArrowUpRight, Calendar } from "lucide-react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Container from "../Container/Container";
 
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -11,66 +12,65 @@ const posts = [
     title: "Obstetrics & Gynecology Blog",
     date: "July 08 2025",
     desc: "Creekside Center for Women is a renowned establishment providing gynecology, obstetrics, and midwife services.",
-    img: "https://via.placeholder.com/400x500/F0F4F8/333333?text=Doctor+Consulting",
+    img: "/blog_one.png",
   },
   {
     title: "Pregnancy Health Tips",
     date: "July 08 2025",
     desc: "Creekside Center for Women is a renowned establishment providing gynecology, obstetrics, and midwife services.",
-    img: "https://via.placeholder.com/400x500/D0DDE7/555555?text=Nurse+Assisting",
+    img: "/blog_two.png",
   },
   {
     title: "Hormonal Therapy Insights",
     date: "July 08 2025",
     desc: "Creekside Center for Women is a renowned establishment providing gynecology, obstetrics, and midwife services.",
-    img: "https://via.placeholder.com/400x500/B0C4DE/777777?text=Doctor+with+Patient",
+    img: "/blog_three.png",
   },
-  // Add more posts here to see the sliding effect
+
   {
     title: "Understanding Women's Health",
     date: "August 15 2025",
     desc: "Creekside Center for Women is a renowned establishment providing gynecology, obstetrics, and midwife services.",
-    img: "https://via.placeholder.com/400x500/A2B5CD/999999?text=Healthcare+Team",
+    img: "/blog_one.png",
   },
 ];
 
-// Extracted the card content for clean Swiper mapping
-const BlogCard = ({ post }) => (
-  <div className="rounded-2xl shadow-lg border border-gray-100 overflow-hidden relative h-full">
-    {/* Blog Image */}
+const BlogCard = ({ post, i }) => (
+  <div
+    data-aos="fade-up"
+    data-aos-delay={i * 200}
+    className="rounded-2xl overflow-hidden relative group"
+  >
     <img
       src={post.img}
       alt={post.title}
-      className="w-full h-[300px] object-cover"
+      className="w-full h-[450px] object-cover"
     />
 
-    {/* White Content Box (Overlays the bottom of the image) */}
-    <div className="absolute left-0 right-0 bottom-0 p-5 pt-10 bg-white rounded-t-3xl shadow-2xl">
-      {/* Date Tag */}
-      <div className="absolute -top-4 left-5 bg-white px-3 py-1 rounded-full text-xs font-medium text-gray-600 shadow-md flex items-center space-x-1">
+    <div className="relative -mt-20 mx-10 bg-white border-b-4 border-green-600 rounded-2xl shadow-md p-5">
+      <div className="absolute top-2 left-5  px-3 py-1  text-xs font-medium text-gray-600  flex items-center space-x-1">
         <Calendar className="w-3 h-3 text-green-600" />
         <span>{post.date}</span>
       </div>
 
-      {/* Title & Description */}
-      <h4 className="font-bold text-xl text-gray-800 mb-2">{post.title}</h4>
-      <p className="text-sm text-gray-500 mb-4">{post.desc}</p>
+      <h4 className="font-bold text-lg text-gray-800 mt-5 mb-2 line-clamp-2">
+        {post.title}
+      </h4>
 
-      {/* Read More Link/Button */}
-      <a
-        href="#"
-        className="inline-flex items-center space-x-1 text-green-600 font-semibold text-sm border-t border-green-200 pt-3"
+      <p className="text-sm text-gray-500 mb-4 line-clamp-3">{post.desc}</p>
+
+      {/* Read More */}
+      <Link
+        href="/"
+        className="inline-flex items-center space-x-1relative text-sm text-blue-600 hover:text-blue-700 font-medium transition 
+             after:content-[''] after:absolute after:left-0 after:-bottom-0.5 
+             after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 
+             hover:after:w-full"
       >
         <span>Read More</span>
         <ArrowUpRight className="w-4 h-4" />
-      </a>
-
-      {/* Green Bottom Underline (Visual element from the image) */}
-      <div className="absolute left-0 bottom-0 w-full h-1 bg-green-600"></div>
+      </Link>
     </div>
-
-    {/* This spacing div ensures the card content box doesn't overlap the Swiper pagination dots */}
-    <div className="h-[200px] lg:h-[220px]"></div>
   </div>
 );
 
@@ -82,7 +82,6 @@ const Blog = () => {
           Best Helpful Blog
         </h3>
 
-        {/* SWIPER CONTAINER */}
         <div className="mt-8">
           <Swiper
             modules={[Pagination]}
@@ -91,22 +90,21 @@ const Blog = () => {
             pagination={{ clickable: true }}
             loop={false}
             breakpoints={{
-              // 640px and above: 2 slides
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
               },
-              // 1024px and above: 3 slides
+
               1024: {
                 slidesPerView: 3,
                 spaceBetween: 30,
               },
             }}
-            className="pb-12" // Add padding for the pagination dots
+            className="pb-12"
           >
             {posts.map((p, i) => (
               <SwiperSlide key={i} className="h-auto">
-                <BlogCard post={p} />
+                <BlogCard post={p} i={i} />
               </SwiperSlide>
             ))}
           </Swiper>

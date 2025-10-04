@@ -52,12 +52,9 @@ const Experience = () => {
                 />
               </div>
 
-              {/* Text Content */}
               <div className="p-5">
-                {/* Hospital Name */}
                 <h4 className="font-bold text-xl text-gray-800">{h.name}</h4>
 
-                {/* Role and Duration (Flex to separate them visually) */}
                 <div className="flex justify-between items-baseline mt-2 mb-3">
                   <p className="text-base font-semibold text-gray-700">
                     {h.role}
@@ -67,7 +64,6 @@ const Experience = () => {
                   </p>
                 </div>
 
-                {/* Description - Matches the long repetitive text in the image */}
                 <p className="text-sm text-gray-500 leading-relaxed">
                   Non-cancerous tumors that grow in the uterus, often causing
                   pain and heavy bleeding. Non-cancerous tumors that.
