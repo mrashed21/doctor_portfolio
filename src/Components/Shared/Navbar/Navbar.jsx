@@ -59,7 +59,7 @@ const Navbar = () => {
     <>
       {/* Header */}
       <header
-        className={`fixed top-0 w-full p-4 transition-all duration-300 z-50 ${
+        className={`fixed top-0 w-full p-4 transition-all duration-300 z-[101] ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         } ${
           scrolled
