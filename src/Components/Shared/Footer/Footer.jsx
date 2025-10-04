@@ -49,15 +49,17 @@ const Footer = () => {
               road readable content of a page when looking at layout.
             </p>
 
-            <div className="flex w-full ">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-grow p-3 rounded-l-lg text-gray-900 bg-white focus:outline-none text-sm"
-              />
-              <button className="bg-green-600 text-white px-4 py-3 rounded-r-lg font-semibold hover:bg-green-700 transition duration-300 whitespace-nowrap text-sm">
-                SUBSCRIBE
-              </button>
+            <div className="w-full overflow-x-hidden">
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="p-3 rounded-l-lg text-gray-900 bg-white focus:outline-none text-sm flex-1 min-w-0"
+                />
+                <button className="bg-green-600 text-white px-4 py-3 rounded-r-lg font-semibold hover:bg-green-700 transition duration-300 whitespace-nowrap text-sm">
+                  SUBSCRIBE
+                </button>
+              </div>
             </div>
           </div>
 
@@ -142,10 +144,6 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center py-4 text-xs gap-4">
-          {/* <div className="order-2 md:order-1">
-            <span className="text-gray-400">Sign up for our Newsletter</span>
-          </div> */}
-
           <p className="text-white dark:text-white/90 mt-5">
             &copy; {new Date().getFullYear()} all right reserved. Developed by :{" "}
             {""}

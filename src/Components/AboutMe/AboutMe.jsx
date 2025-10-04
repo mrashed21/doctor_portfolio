@@ -31,10 +31,10 @@ const AboutMe = () => {
       />
       <AboutSection />
       <WhyChooseMe />
-      <Publications />
-      <WorkingJourney />
-      <Awards />
-      <CTA />
+      {/* <Publications /> */}
+      {/* <WorkingJourney /> */}
+      {/* <Awards /> */}
+      {/* <CTA /> */}
     </section>
   );
 };
