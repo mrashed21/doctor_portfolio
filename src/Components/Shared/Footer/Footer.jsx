@@ -1,6 +1,13 @@
-import Container from "@/Components/Container/Container";
-
 import { Facebook, Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
+
+const Container = ({ children, className = "" }) => {
+  return (
+    <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+      {children}
+    </div>
+  );
+};
 
 // Mock Data for Quick Links and Company Links
 const quickLinks = [
@@ -22,15 +29,15 @@ const companyLinks = [
 const paymentIcons = [
   {
     name: "bKash",
-    img: "https://via.placeholder.com/100x40/C9003E/FFFFFF?text=bKash",
+    img: "/bkash.svg",
   },
   {
     name: "Nagad",
-    img: "https://via.placeholder.com/100x40/FF5400/FFFFFF?text=Nagad",
+    img: "nagad.svg",
   },
   {
     name: "MasterCard",
-    img: "https://via.placeholder.com/100x40/000000/FFFFFF?text=MasterCard",
+    img: "/master.png",
   },
 ];
 
@@ -38,32 +45,34 @@ const Footer = () => {
   return (
     <footer className="bg-[#191928] text-gray-300">
       <Container>
-        {/* Top Section: Logo, Subscribe, Links, Contact, Payment */}
-        <div className="pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8">
-          {/* 1. Logo and Description (Col Span 3 on large screens) */}
-          <div className="lg:col-span-3 pr-8">
-            <h3 className="text-4xl font-bold text-white mb-4">Logo</h3>
-            <p className="text-sm leading-relaxed text-gray-400 mb-6 max-w-sm">
+        <div className="pt-12 md:pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8">
+          {/* Logo and Newsletter Section */}
+          <div className="lg:col-span-3 lg:pr-8">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Logo
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-400 mb-6 ">
               It is a long-established fact that a reader will be distracted the
               road readable content of a page when looking at layout.
             </p>
 
-            {/* Subscribe Form */}
-            <div className="flex w-full max-w-sm">
+            <div className="flex w-full ">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow p-3 rounded-l-lg text-gray-900 focus:outline-none"
+                className="flex-grow p-3 rounded-l-lg text-gray-900 bg-white focus:outline-none text-sm"
               />
-              <button className="bg-green-600 text-white p-3 rounded-r-lg font-semibold hover:bg-green-700 transition duration-300 whitespace-nowrap">
+              <button className="bg-green-600 text-white px-4 py-3 rounded-r-lg font-semibold hover:bg-green-700 transition duration-300 whitespace-nowrap text-sm">
                 SUBSCRIBE
               </button>
             </div>
           </div>
 
-          {/* 2. Quick Links (Col Span 1) */}
+          {/* Quick Links */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-white mb-4 text-base">
+              Quick Links
+            </h4>
             <ul className="space-y-2 text-sm">
               {quickLinks.map((link, i) => (
                 <li key={i}>
@@ -78,9 +87,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 3. Company Links (Col Span 1) */}
+          {/* Company Links */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <h4 className="font-semibold text-white mb-4 text-base">Company</h4>
             <ul className="space-y-2 text-sm">
               {companyLinks.map((link, i) => (
                 <li key={i}>
@@ -95,16 +104,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 4. Contact Info (Col Span 1) */}
+          {/* Contact Section */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-white mb-4 text-base">Contact</h4>
             <div className="text-sm space-y-2 text-gray-400">
               <p>102/B Street, Mohammadpur, Dhaka</p>
               <div className="mt-4">
                 <p className="font-medium text-white">Email</p>
                 <a
                   href="mailto:info@companyname.com"
-                  className="hover:text-green-500"
+                  className="hover:text-green-500 break-all"
                 >
                   info@companyname.com
                 </a>
@@ -118,36 +127,45 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 5. Pay With (Col Span 1) */}
+          {/* Payment Methods */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold text-white mb-4">Pay With</h4>
-            <div className="space-y-3">
+            <h4 className="font-semibold text-white mb-4 text-base">
+              Pay With
+            </h4>
+            <div className="flex lg:flex-col items-center lg:items-start gap-3">
               {paymentIcons.map((icon, i) => (
                 <img
                   key={i}
                   src={icon.img}
                   alt={icon.name}
-                  className="w-24 rounded-md shadow-md"
+                  className="w-20 md:w-24 rounded-md shadow-md"
                 />
               ))}
             </div>
           </div>
         </div>
 
-        {/* --- Divider --- */}
         <hr className="border-gray-700 mb-6" />
 
-        {/* Bottom Section: Copyright and Socials */}
-        <div className="flex flex-col md:flex-row justify-between items-center py-4 text-xs">
-          <div className="flex space-x-4 mb-4 md:mb-0">
+        {/* Footer Bottom */}
+        <div className="flex flex-col md:flex-row justify-between items-center py-4 text-xs gap-4">
+          {/* <div className="order-2 md:order-1">
             <span className="text-gray-400">Sign up for our Newsletter</span>
-          </div>
+          </div> */}
 
-          <p className="text-gray-500 mb-4 md:mb-0">
-            © 2025 Health Company Bangladesh Ltd. All rights reserved.
+          <p className="text-white dark:text-white/90 mt-5">
+            &copy; {new Date().getFullYear()} all right reserved. Developed by :{" "}
+            {""}
+            <Link
+              href="https://www.classicit.com.bd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Classic IT.
+            </Link>
           </p>
 
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 order-1 md:order-3">
             <a
               href="#"
               aria-label="Facebook"
