@@ -8,18 +8,22 @@ import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Effect to hide/show the navbar on scroll
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setShowNavbar(true);
-      } else if (window.scrollY > lastScrollY) {
-        setShowNavbar(false);
+        setScrolled(false);
       } else {
-        setShowNavbar(true);
+        setScrolled(true);
+        if (window.scrollY > lastScrollY) {
+          setShowNavbar(false);
+        } else {
+          setShowNavbar(true);
+        }
       }
       lastScrollY = window.scrollY;
     };
@@ -28,13 +32,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Effect to lock body scroll when the drawer is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = open ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -57,10 +56,14 @@ export default function Navbar() {
 
   return (
     <>
-      {/* The main header component that hides/shows */}
+      {/* Header */}
       <header
-        className={`fixed top-0 w-full p-4 transition-transform duration-300 z-50 ${
+        className={`fixed top-0 w-full p-4 transition-all duration-300 z-50 ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
+        } ${
+          scrolled
+            ? "bg-primary/90 backdrop-blur-md shadow-md"
+            : "bg-transparent"
         }`}
       >
         <Container className="flex items-center justify-between py-4">
@@ -99,7 +102,7 @@ export default function Navbar() {
         </Container>
       </header>
 
-      {/* The mobile drawer menu, now outside the header */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <>
@@ -129,7 +132,7 @@ export default function Navbar() {
               >
                 <HiOutlineX size={32} />
               </button>
-              <div className="p-8 pl-16 flex flex-col gap-4 text-lg">
+              <div className="p-2 pl-16 flex flex-col gap-4 text-lg">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
@@ -142,7 +145,7 @@ export default function Navbar() {
                 ))}
                 <button
                   onClick={() => setOpen(false)}
-                  className="mt-4 bg-white text-primary px-5 py-3 rounded-lg font-semibold hover:bg-primary-light transition"
+                  className="mt-4 bg-white text-primary px-5 py-3 rounded-lg font-semibold hover:bg-primary-light transition text-sm"
                 >
                   Book Appointment
                 </button>
