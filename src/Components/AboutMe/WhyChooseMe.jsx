@@ -78,7 +78,10 @@ const WhyChooseMe = () => {
             </div>
 
             {/* Right Image Section */}
-            <div className="lg:col-span-6 relative flex justify-center lg:justify-end px-4 lg:px-0 mt-8 lg:mt-0 overflow-hidden">
+            <div
+              className="lg:col-span-6 relative flex justify-center lg:justify-end px-4 lg:px-0 mt-8 lg:mt-0 overflow-hidden"
+              data-aos="fade-left"
+            >
               <div className="relative max-w-[280px] sm:max-w-sm lg:max-w-md w-full">
                 {/* Doctor Main Image */}
                 <img

@@ -23,7 +23,7 @@ const AboutSection = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12 items-center">
             {/* Mobile/Tablet: Simplified stacked layout */}
-            <div className="lg:hidden w-full px-4">
+            <div className="lg:hidden w-full px-4" data-aos="fade-right">
               <div className="flex flex-col items-center gap-6 mb-8">
                 {/* Main image */}
                 <div className="w-full max-w-[300px] sm:max-w-[350px] rounded-xl overflow-hidden shadow-lg">
@@ -67,7 +67,10 @@ const AboutSection = () => {
             </div>
 
             {/* Desktop: Original complex layout */}
-            <div className="hidden lg:block lg:col-span-5 relative h-full min-h-[500px]">
+            <div
+              className="hidden lg:block lg:col-span-5 relative h-full min-h-[500px]"
+              data-aos="fade-right"
+            >
               <div className="absolute top-1/4 z-50 lg:bottom-0 left-1/4 lg:left-1/3 w-3/4 max-w-[350px] rounded-xl overflow-hidden">
                 <div className="relative">
                   <img
@@ -105,7 +108,10 @@ const AboutSection = () => {
             </div>
 
             {/* Text content - responsive for all screens */}
-            <div className="lg:col-span-7 px-4 lg:px-0 lg:pl-16 space-y-3 md:space-y-4">
+            <div
+              className="lg:col-span-7 px-4 lg:px-0 lg:pl-16 space-y-3 md:space-y-4"
+              data-aos="fade-left"
+            >
               <p className="text-green-600 font-semibold text-sm md:text-base tracking-wider">
                 About Me
               </p>
@@ -119,7 +125,11 @@ const AboutSection = () => {
                 evidence-based medical care.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-4 md:gap-x-8 pt-3 md:pt-4">
+              <div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-4 md:gap-x-8 pt-3 md:pt-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 {features.map((feature, i) => (
                   <div key={i} className="flex items-start space-x-2">
                     <span className="bg-blue-500 rounded-full p-1 flex-shrink-0">
@@ -134,6 +144,8 @@ const AboutSection = () => {
               <Link
                 href="/"
                 className="inline-flex items-center space-x-2 text-blue-500 font-semibold mt-4 md:mt-6 text-sm md:text-base group"
+                data-aos="zoom-in"
+                data-aos-delay="400"
               >
                 <span>Book An Appointment</span>
                 <span className="border border-blue-500 rounded-full  p-1">

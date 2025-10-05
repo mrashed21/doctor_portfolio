@@ -19,7 +19,11 @@ const CTA = () => {
           </div>
 
           {/* Text Content */}
-          <div className="lg:ml-auto text-center lg:text-left space-y-3 lg:space-y-4 max-w-xl">
+          <div
+            className="lg:ml-auto text-center lg:text-left space-y-3 lg:space-y-4 max-w-xl"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <p className="text-white font-medium uppercase text-xs sm:text-sm tracking-widest">
               Get In Touch
             </p>
