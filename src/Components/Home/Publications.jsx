@@ -64,7 +64,7 @@ const Publications = () => {
 
   return (
     <section id="publications" className="py-20 bg-white">
-      <Container className="grid grid-cols-1 lg:grid-cols-4 gap-10 items-center">
+      <Container className="grid grid-cols-1 lg:grid-cols-4 gap-10 items-center px-5">
         <div
           data-aos="fade-right"
           data-aos-easing="ease-in-sine"
@@ -127,7 +127,7 @@ const PublicationCard = ({ pub, i }) => (
   <div
     data-aos="fade-up"
     data-aos-delay={i * 200}
-    className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl h-full flex flex-col"
+    className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl h-full flex flex-col w-full"
   >
     <div className="h-40 overflow-hidden">
       <img

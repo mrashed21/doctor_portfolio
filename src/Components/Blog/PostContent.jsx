@@ -1,23 +1,19 @@
 import { Calendar, User } from "lucide-react";
 
-// Placeholder image for the main article
-const MainImage =
-  "https://via.placeholder.com/800x450/F0F4F8/333333?text=Doctor+Patient+Consultation";
+const MainImage = "/work.webp";
 
 const PostContent = () => {
   return (
-    <article className="space-y-6">
-      {/* Featured Image */}
+    <article className="space-y-6 ">
       <div className="rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in">
         <img
           src={MainImage}
           alt="Trusted & Care for Women's Health."
-          className="w-full h-auto object-cover"
+          className="lg:w-full h-auto object-cover"
         />
       </div>
 
-      {/* Title */}
-      <h1 className="text-4xl font-extrabold text-gray-800 pt-4">
+      <h1 className="text-2xl lg:text-4xl font-extrabold text-gray-800 pt-4">
         Trusted & Care for Women's Health.
       </h1>
 

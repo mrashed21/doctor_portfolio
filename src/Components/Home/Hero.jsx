@@ -9,15 +9,15 @@ const HeroSection = () => {
         <section className="flex flex-col lg:flex-row items-center justify-between w-full">
           {/* leftside */}
           <div className="w-full lg:w-auto pt-20 lg:pt-0">
-            <h1 className="text-2xl lg:text-6xl mt-10 lg:mt-0 font-bold text-white">
+            <h1 className="text-2xl lg:text-6xl mt-10 lg:mt-0 font-bold text-white text-center lg:text-start">
               Trusted & Care for Women's Health.
             </h1>
-            <p className="text-white/80 mt-5 text-sm lg:text-base text-justify font-medium">
+            <p className="text-white/80  mt-2 lg:mt-5 text-sm lg:text-base font-medium text-center lg:text-start">
               Dr. Runa Akhter is a highly experienced and compassionate
               Specialization, e.g., Gynecologist Doctorsand Surgeons.
             </p>
 
-            <div className="">
+            <div className="flex flex-col items-center lg:items-start">
               <div className="border-2 rounded-md border-white shadow inline-flex items-center justify-center gap-2 px-4 py-2 mt-10">
                 <div className="h-2 w-2 rounded-full bg-[#00EE7F]"></div>
                 <h2 className="text-white/80 font-medium text-sm lg:text-base">

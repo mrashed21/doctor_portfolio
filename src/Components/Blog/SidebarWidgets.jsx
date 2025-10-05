@@ -1,25 +1,26 @@
 import { Facebook, Instagram, Search, Youtube } from "lucide-react";
+import Link from "next/link";
 
 // Mock data for the Feeds
 const mockFeeds = [
   {
-    img: "https://via.placeholder.com/60x60/D1F0CC/555?text=Feed1",
+    img: "/about_two.png",
     text: "Creekside Center for Women is a renowned establishment providing gynecology...",
   },
   {
-    img: "https://via.placeholder.com/60x60/B9E6A6/555?text=Feed2",
+    img: "/service_two.png",
     text: "Creekside Center for Women is a renowned establishment providing gynecology...",
   },
   {
-    img: "https://via.placeholder.com/60x60/A0D1B0/555?text=Feed3",
+    img: "/service_eight.png",
     text: "Creekside Center for Women is a renowned establishment providing gynecology...",
   },
   {
-    img: "https://via.placeholder.com/60x60/CCE5CC/555?text=Feed4",
+    img: "/work.webp",
     text: "Creekside Center for Women is a renowned establishment providing gynecology...",
   },
   {
-    img: "https://via.placeholder.com/60x60/8FC09F/555?text=Feed5",
+    img: "/service_three.png",
     text: "Creekside Center for Women is a renowned establishment providing gynecology...",
   },
 ];
@@ -27,7 +28,9 @@ const mockFeeds = [
 // --- Search Widget ---
 export const SearchWidget = (props) => (
   <div {...props} className="p-4 bg-gray-50 rounded-xl shadow-sm">
-    <h4 className="text-lg font-semibold text-gray-800 mb-4">Search News</h4>
+    <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+      Search News
+    </h4>
     <div className="relative flex">
       <input
         type="text"
@@ -44,29 +47,31 @@ export const SearchWidget = (props) => (
 // --- Follow Us Widget ---
 export const FollowUsWidget = (props) => (
   <div {...props} className="space-y-4">
-    <h4 className="text-lg font-semibold text-gray-800 mb-2">Follow Us</h4>
-    <div className="flex space-x-4 border-t border-b border-gray-200 py-4">
-      <a
-        href="#"
+    <h4 className="text-lg font-semibold text-gray-800 mb-2 text-center">
+      Follow Us
+    </h4>
+    <div className="flex items-center justify-center space-x-4 border-t border-b border-gray-200 py-4">
+      <Link
+        href="/"
         aria-label="Facebook"
         className="p-3 rounded-full bg-green-600 text-white hover:bg-green-700 transition"
       >
         <Facebook className="w-5 h-5" />
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         aria-label="Instagram"
         className="p-3 rounded-full bg-green-600 text-white hover:bg-green-700 transition"
       >
         <Instagram className="w-5 h-5" />
-      </a>
-      <a
-        href="#"
+      </Link>
+      <Link
+        href="/"
         aria-label="YouTube"
         className="p-3 rounded-full bg-green-600 text-white hover:bg-green-700 transition"
       >
         <Youtube className="w-5 h-5" />
-      </a>
+      </Link>
     </div>
   </div>
 );
@@ -74,12 +79,15 @@ export const FollowUsWidget = (props) => (
 // --- Feeds Widget ---
 export const FeedsWidget = (props) => (
   <div {...props} className="space-y-4">
-    <h4 className="text-lg font-semibold text-gray-800 mb-4">Feeds</h4>
+    <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+      Feeds
+    </h4>
+
     <div className="space-y-4">
       {mockFeeds.map((feed, index) => (
         <div
           key={index}
-          className="flex items-start space-x-3 group cursor-pointer"
+          className="flex items-start space-x-3 group cursor-pointer pt-5 border-t-[2px] border-[#00984A]"
         >
           <img
             src={feed.img}
@@ -89,6 +97,8 @@ export const FeedsWidget = (props) => (
           <p className="text-sm text-gray-600 transition-colors group-hover:text-green-600">
             {feed.text}
           </p>
+
+          <hr className=" " />
         </div>
       ))}
     </div>
