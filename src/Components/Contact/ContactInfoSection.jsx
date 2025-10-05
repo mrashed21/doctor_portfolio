@@ -1,15 +1,17 @@
-import { Mail, MapPin, PhoneCall } from "lucide-react"; // Using lucide icons for modern look
+"use client";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Link from "next/link";
+import { useEffect } from "react";
 import Container from "../Container/Container";
 
-// Mock Data for the three contact cards
 const contactCards = [
   {
     title: "Our Location",
     details: "121 King Street, Melbourne Victoria 3000 Bangladesh.",
-    icon: MapPin,
     actionText: "Get Direction",
-    actionLink: "#", // Placeholder link for map direction
-    iconUrl: "https://placehold.co/100x100/FF5733/FFFFFF?text=Map", // Placeholder for the map icon image
+    actionLink: "/",
+    iconUrl: "/maps.png",
   },
   {
     title: "Send me Email",
@@ -20,13 +22,12 @@ const contactCards = [
         support@medwell.com
       </>
     ),
-    icon: Mail,
     actionText: "Send Email",
     actionLink: "mailto:support@medwell.com",
-    iconUrl: "https://placehold.co/100x100/F4D03F/333333?text=Email", // Placeholder for the email icon image
+    iconUrl: "/email.png",
   },
   {
-    title: "Our Location", // Note: This is labeled as "Our Location" in the image but contains phone numbers
+    title: "Our Location",
     details: (
       <>
         +880 1252656296
@@ -34,31 +35,21 @@ const contactCards = [
         +880 1252656296
       </>
     ),
-    icon: PhoneCall,
     actionText: "Call Me",
     actionLink: "tel:+8801252656296",
-    iconUrl: "https://placehold.co/100x100/40C7F9/FFFFFF?text=Phone", // Placeholder for the phone icon image
+    iconUrl: "/phone.png",
   },
 ];
 
-// Component for a single contact card
 const ContactCard = ({ card, index }) => {
-  // Style the card based on the icon image used in the mockup
-  let iconBackgroundColor = "bg-red-500"; // Default for the map
-  if (index === 1) iconBackgroundColor = "bg-yellow-400"; // For the email
-  if (index === 2) iconBackgroundColor = "bg-green-400"; // For the phone (adjusting to blue for phone)
-
   return (
     <div
-      className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl h-full"
+      className="flex flex-col items-center text-center bg-white rounded-2xl shadow-md hover:shadow-xl p-8 transition-all duration-300 h-full"
       data-aos="fade-up"
       data-aos-delay={index * 100}
     >
-      {/* Icon Block (Simulating the icon images from the mockup) */}
-      <div
-        className={`flex justify-center items-center w-24 h-24 rounded-full ${iconBackgroundColor} mb-6 shadow-md`}
-      >
-        {/* We use a placeholder image URL for the colorful icons */}
+      {/* Icon Circle */}
+      <div className="flex justify-center items-center w-24 h-24 rounded-full bg-white mb-6 shadow-sm">
         <img
           src={card.iconUrl}
           alt={`${card.title} icon`}
@@ -66,36 +57,54 @@ const ContactCard = ({ card, index }) => {
         />
       </div>
 
-      <h3 className="text-xl font-bold text-gray-800 mb-2">{card.title}</h3>
+      {/* Title */}
+      <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+        {card.title}
+      </h3>
 
-      <p className="text-sm text-gray-500 mb-4 flex-grow">{card.details}</p>
+      {/* Details */}
+      <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+        {card.details}
+      </p>
 
-      <a
+      {/* Action Link */}
+      <Link
         href={card.actionLink}
-        className="text-green-600 font-semibold text-sm hover:underline mt-auto"
+        className="text-blue-600 text-sm font-medium hover:underline transition-colors"
       >
         {card.actionText}
-      </a>
+      </Link>
     </div>
   );
 };
 
 const ContactInfoSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 80,
+    });
+  }, []);
+
   return (
-    <section id="contact-info" className="py-20 bg-white">
+    <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+
+      <div className="absolute inset-0 bg-[url('/background_image.webp')] opacity-10 bg-center bg-cover"></div>
+
       <Container>
-        {/* Header Block */}
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <p className="text-green-600 font-semibold text-base tracking-wider">
-            GET IN TOUCH
+        {/* Header */}
+        <div className="relative text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+          <p className="text-green-600 font-semibold text-sm md:text-base tracking-wider uppercase">
+            Get In Touch
           </p>
-          <h2 className="text-4xl font-extrabold text-gray-800 mt-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 mt-2">
             Feel Free To Contact
           </h2>
         </div>
 
-        {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Contact Cards */}
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
           {contactCards.map((card, index) => (
             <ContactCard key={index} card={card} index={index} />
           ))}

@@ -6,7 +6,7 @@ const DoctorImage = "/hero_doctor.png";
 
 const CTA = () => {
   return (
-    <section className="pt-20 -mb-5 bg-white">
+    <section className="pt-20 -mb-5 ">
       <Container>
         <div className="relative flex flex-col lg:flex-row items-center justify-between bg-green-600 rounded-2xl shadow-2xl px-6 sm:px-10 lg:px-14 py-10  lg:w-[70%] mx-auto">
           {/* Doctor Image */}
