@@ -46,7 +46,7 @@ const minorAwards = [
 
 const Awards = () => {
   return (
-    <section id="awards" className="py-20 bg-gray-50 overflow-hidden">
+    <section  className="py-20 bg-gray-50 overflow-hidden">
       <Container>
         <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">
           My Qualification and Awards

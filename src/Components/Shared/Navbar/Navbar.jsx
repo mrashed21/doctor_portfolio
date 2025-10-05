@@ -67,7 +67,7 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        <Container className="flex items-center justify-between py-4">
+        <Container className="flex items-center justify-between lg:py-4">
           <div className="flex items-end gap-4">
             <h1 className="text-2xl font-bold text-white">Dr. Ruma</h1>
             <div className="hidden md:flex gap-6 text-sm text-white">

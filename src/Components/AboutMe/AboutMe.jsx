@@ -22,7 +22,7 @@ const AboutMe = () => {
   }, []);
 
   return (
-    <section>
+    <section className="overflow-hidden">
       <HeroComponents
         title="About Me"
         subtitle="I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist] with a passion for providing holistic, evidence-based medical care."
@@ -34,7 +34,9 @@ const AboutMe = () => {
       <Publications />
       <WorkingJourney />
       <Awards />
-      <CTA />
+      <section className="overflow-y-visible">
+        <CTA />
+      </section>
     </section>
   );
 };
