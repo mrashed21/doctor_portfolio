@@ -28,7 +28,7 @@ const Process = () => {
   return (
     <section className="py-16 bg-white">
       <Container>
-        <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-16">
+        <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mt-10 mb-16">
           My Working Process
         </h3>
 

@@ -33,7 +33,7 @@ const About = () => {
             data-aos="fade-right"
           >
             {/* Main Doctor Image (Center/Right) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[70%] rounded-2xl overflow-hidden shadow-2xl z-10">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[70%] rounded-2xl overflow-hidden  z-10">
               <img
                 src={imageMain}
                 alt="Dr. Runa Dhola"
@@ -51,7 +51,7 @@ const About = () => {
             </div>
 
             {/* Bottom-Left Image */}
-            <div className="absolute -left-3 bottom-0 w-[45%] h-[45%] rounded-xl overflow-hidden shadow-lg">
+            <div className="absolute -left-3 bottom-0 w-[45%] h-[45%] rounded-xl overflow-hidden ">
               <img
                 src={imageBottomLeft}
                 alt="Doctor Consulting"
@@ -67,7 +67,7 @@ const About = () => {
           {/* Mobile Image Layout */}
           <div className="md:hidden relative h-[500px] mb-8">
             {/* Main Doctor Image (Center) */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[70%] h-[60%] rounded-2xl overflow-hidden shadow-2xl z-10">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[70%] h-[60%] rounded-2xl overflow-hidden  z-10">
               <img
                 src={imageMain}
                 alt="Dr. Runa Dhola"
@@ -76,7 +76,7 @@ const About = () => {
             </div>
 
             {/* Top-Left Image */}
-            <div className="absolute left-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden shadow-lg">
+            <div className="absolute left-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden s">
               <img
                 src={imageTopLeft}
                 alt="Doctor with Patient"
@@ -85,7 +85,7 @@ const About = () => {
             </div>
 
             {/* Bottom-Right Image */}
-            <div className="absolute right-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden shadow-lg">
+            <div className="absolute right-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden ">
               <img
                 src={imageBottomLeft}
                 alt="Doctor Consulting"
