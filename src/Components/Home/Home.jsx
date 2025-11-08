@@ -29,12 +29,12 @@ const Home = () => {
       <Hero />
       <Services />
       <About />
-      <Appointment />
+      {/* <Appointment /> */}
       <Process />
       <Experience />
       <Testimonials />
-      <Publications />
-      <Blog />
+      {/* <Publications /> */}
+      {/* <Blog /> */}
       <Awards />
     </section>
   );

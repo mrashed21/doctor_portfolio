@@ -1,55 +1,53 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import Container from "../Container/Container";
 
 const services = [
   {
-    title: "Endometriosis",
+    title: "High-Risk Pregnancy Care",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
+      "Specialized care for women with high-risk pregnancies, ensuring both mother and baby are monitored and treated with utmost precision.",
     img: "/service_one.png",
   },
   {
-    title: "Ovarian Cysts",
+    title: "Endometriosis Management",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_two.png",
+      "Diagnosis and treatment of endometriosis to relieve pain, improve fertility, and enhance quality of life.",
+    img: "/service_two.webp",
   },
   {
-    title: "Cervical Cancer",
+    title: "Ovarian Cysts Treatment",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_three.png",
+      "Comprehensive care for ovarian cysts including diagnosis, monitoring, and surgical or non-surgical management.",
+    img: "/service_three.webp",
   },
   {
-    title: "Uterine Fibroids",
+    title: "Uterine Fibroids Management",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_four.png",
+      "Effective treatment options for uterine fibroids to reduce symptoms like heavy bleeding and pelvic pain.",
+    img: "/service_four.webp",
   },
   {
-    title: "Endometriosis",
+    title: "Cervical Screening & Care",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_five.png",
+      "Regular cervical screenings, early detection of abnormalities, and timely treatment for cervical health.",
+    img: "/service_five.jpg",
   },
   {
-    title: "Ovarian Cysts",
+    title: "Fetal Medicine & Ultrasound",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_six.png",
+      "Advanced fetal monitoring and diagnostic ultrasound for early detection of complications.",
+    img: "/service--six.webp",
   },
   {
-    title: "Cervical Cancer",
+    title: "Infertility Consultation",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_seven.png",
+      "Guidance and treatment plans for couples experiencing infertility issues, focusing on personalized reproductive care.",
+    img: "/service-seven.jpg",
   },
   {
-    title: "Uterine Fibroids",
+    title: "Gynecological Surgery",
     description:
-      "Non-cancerous tumors that grow in the uterus, often causing pain and heavy.",
-    img: "/service_eight.png",
+      "Minimally invasive and advanced surgical procedures for various gynecological conditions.",
+    img: "/service-eight.webp",
   },
 ];
 
@@ -67,7 +65,7 @@ const ServiceCard = ({ service, index }) => (
       />
 
       <div className="absolute -bottom-6 left-4 p-3 z-40 rounded-full bg-green-600 text-white shadow-xl">
-        <img src="/icon_nine.svg" alt="hello" className="w-10 h-10 " />
+        <img src="/icon_nine.svg" alt="icon" className="w-10 h-10 " />
       </div>
     </div>
 
@@ -75,14 +73,13 @@ const ServiceCard = ({ service, index }) => (
       <h4 className="font-bold text-xl text-gray-800 mb-2">{service.title}</h4>
       <p className="text-sm text-gray-500 mb-4">{service.description}</p>
 
-      {/* Read More Link */}
-      <Link
+      {/* <Link
         href="/"
-        className="inline-flex items-center space-x-1 text-blue-500 font-semibold text-sm  pt-3 group"
+        className="inline-flex items-center space-x-1 text-blue-500 font-semibold text-sm pt-3 group"
       >
         <span>Read More</span>
-        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x- -rotate-45" />
-      </Link>
+        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+      </Link> */}
     </div>
   </div>
 );
@@ -100,7 +97,6 @@ const MyMedicalServices = () => {
           </h2>
         </div>
 
-        {/* Service Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <ServiceCard key={i} service={service} index={i} />

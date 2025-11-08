@@ -50,14 +50,13 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about-me" },
     { name: "Services", path: "/service" },
-    { name: "Blog", path: "/blog" },
+    // { name: "Blog", path: "/blog" },
     { name: "FAQs", path: "/faq" },
-    { name: "Contact", path: "/contact" },
+    // { name: "Contact", path: "/contact" },
   ];
 
   return (
     <>
-      {/* Header */}
       <header
         className={`fixed top-0 w-full p-4 transition-all duration-300 z-[101] ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
@@ -69,7 +68,9 @@ const Navbar = () => {
       >
         <Container className="flex items-center justify-between ">
           <div className="flex items-center space-x-10">
-            <h1 className="text-2xl font-bold text-white">Dr. Ruma</h1>
+            <Link href={"/"} className="text-2xl font-bold text-white">
+              Dr. Runa
+            </Link>
             <div className="hidden md:flex  gap-6 text-sm text-white">
               {navItems.map((item) => (
                 <Link
@@ -85,17 +86,15 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop contact */}
           <div className="lg:flex items-center gap-4 hidden">
             <Link
-              href="tel:+8801781131905"
+              href="tel:+8801790118866"
               className="hover:opacity-90 flex items-center text-white"
             >
-              <img src="/contact.svg" alt="" /> <span>+8801781131905</span>
+              <img src="/contact.svg" alt="" /> <span>+8801790118866</span>
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <div className="lg:hidden">
             <button onClick={() => setOpen(!open)} className="p-2 text-white">
               {open ? <HiOutlineX size={24} /> : <HiOutlineMenu size={24} />}
@@ -104,11 +103,9 @@ const Navbar = () => {
         </Container>
       </header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -118,7 +115,6 @@ const Navbar = () => {
               className="fixed inset-0 bg-black/50 z-[55]"
             />
 
-            {/* Drawer */}
             <motion.div
               key="mobileMenu"
               initial="hidden"
@@ -129,10 +125,10 @@ const Navbar = () => {
               className="fixed top-0 right-0 h-full w-[80%] bg-primary/95 text-white z-[60] shadow-lg"
             >
               <button
-                onClick={() => setOpen(!open)}
+                // onClick={() => setOpen(!open)}
                 className="p-2 text-white ml-5 mt-10"
               >
-                <HiOutlineX size={32} />
+                {/* <HiOutlineX size={32} /> */}
               </button>
               <div className="p-2 pl-16 flex flex-col gap-4 text-lg">
                 {navItems.map((item) => (
@@ -141,7 +137,7 @@ const Navbar = () => {
                     href={item.path}
                     className={`py-2 hover:text-accent transition ${
                       pathname === item.path ? "text-accent font-semibold" : ""
-                    }`} // 👈 active class for mobile too
+                    }`}
                     onClick={() => setOpen(false)}
                   >
                     {item.name}

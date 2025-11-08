@@ -6,10 +6,11 @@ const Faqs = () => {
     <section>
       <HeroComponents
         title="FAQ"
-        subtitle="I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist] with a passion for providing holistic, evidence-based medical care."
+        subtitle="I'm Dr. Runa Akhter Dola, a Consultant Obstetrician, Gynaecologist, and Feto-Maternal Medicine Specialist, dedicated to providing compassionate, evidence-based care for women’s health and high-risk pregnancies."
         breadcrumbPath=""
         backgroundImage=""
       />
+
       <FaqSection />
     </section>
   );

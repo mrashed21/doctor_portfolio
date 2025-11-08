@@ -7,27 +7,27 @@ import Container from "../Container/Container";
 
 const testimonials = [
   {
-    name: "Jenny Akhter",
-    clinic: "Happy Clinic",
-    text: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding. Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    name: "মাহমুদা আক্তার",
+    clinic: "ঢাকা",
+    text: "ডা. রুনা আখতার দোলা আপা আমার হাই-রিস্ক প্রেগনেন্সির সময় যেভাবে যত্ন নিয়েছিলেন, তা সত্যিই প্রশংসনীয়। আমি আর আমার বেবি দুজনেই এখন সুস্থ আছি। আল্লাহ তাকে ভালো রাখুন।",
     avatar: "/about_three.png",
   },
   {
-    name: "Rima Akhter",
-    clinic: "Happy Clinic",
-    text: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding. Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    name: "Sadia Rahman",
+    clinic: "Green Life Hospital, Dhaka",
+    text: "Dr. Runa Akhter Dola is one of the most caring doctors I’ve ever met. She explains everything clearly and gives you confidence throughout your treatment.",
     avatar: "/about_three.png",
   },
   {
-    name: "Tania Akhter",
-    clinic: "Happy Clinic",
-    text: "Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding. Non-cancerous tumors that grow in the uterus, often causing pain and heavy bleeding.",
+    name: "নুসরাত জাহান",
+    clinic: "ময়মনসিংহ",
+    text: "প্রথম সন্তান জন্মের সময় ভয় পাচ্ছিলাম, কিন্তু দোলা আপার সহানুভূতিশীল আচরণ আর দক্ষ হাতে সব কিছু খুব সুন্দরভাবে হয়েছে। আন্তরিক ধন্যবাদ।",
     avatar: "/about_three.png",
   },
   {
-    name: "Shila Ghosh",
-    clinic: "Best Care",
-    text: "Outstanding service and personalized attention. Highly recommend Dr. Dhola for any women's health issue.",
+    name: "Farzana Ahmed",
+    clinic: "United Hospital, Dhaka",
+    text: "Her expertise in fetal medicine is outstanding. She handled my complicated pregnancy with utmost care and professionalism. Highly recommended!",
     avatar: "/about_three.png",
   },
 ];
@@ -48,13 +48,12 @@ const StarRating = () => (
 const Testimonials = () => {
   return (
     <section className="lg:py-20 bg-white relative">
-      {/* Background Image */}
       <div
         className="absolute inset-0 z-0 pointer-events-none bg-no-repeat bg-right"
         style={{ backgroundImage: "url(/testimonial_bg.svg)" }}
       ></div>
+
       <Container className="relative z-10">
-        {/* Banner */}
         <div
           data-aos="zoom-in-down"
           data-aos-delay={100}
@@ -62,27 +61,24 @@ const Testimonials = () => {
         >
           <div className="text-center md:text-left">
             <h4 className="text-xl font-bold text-gray-800 mb-1">
-              Do You Have Health Problems
+              Do You Have Health Concerns?
             </h4>
             <p className="text-gray-600 text-sm">
-              Need Immediate Medical Attention? Get Emergency Help From Our
-              Specialist Doctor Anytime
+              Need Immediate Medical Attention? Get Expert Help From Dr. Runa
+              Akhter Dola — Specialist in High-Risk Pregnancy & Feto-Maternal
+              Medicine.
             </p>
           </div>
-          <a
-            href="#"
-            className="mt-4 md:mt-0 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md text-sm"
-          >
+          <h2 className="mt-4 md:mt-0 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md text-sm cursor-pointer">
             I NEED HELP
-          </a>
+          </h2>
         </div>
 
-        {/* Title */}
         <h3 className="text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-10">
-          What Patients are Saying!
+          What Patients Are Saying!
+          <br />
         </h3>
 
-        {/* Swiper */}
         <Swiper
           modules={[Pagination]}
           spaceBetween={30}
@@ -94,7 +90,6 @@ const Testimonials = () => {
             1024: { slidesPerView: 3, spaceBetween: 30 },
           }}
           className="pb-16"
-          style={{ height: "auto" }}
         >
           {testimonials.map((t, i) => (
             <SwiperSlide key={i} className="!h-auto flex">
@@ -108,11 +103,13 @@ const Testimonials = () => {
                   <div className="text-4xl text-green-300 font-serif opacity-70 mb-4">
                     ❝
                   </div>
-                  <p className="text-gray-600 text-base mb-6">{t.text}</p>
+                  <p className="text-gray-700 text-base mb-6 leading-relaxed font-medium">
+                    {t.text}
+                  </p>
                 </div>
                 <div className="mt-auto">
                   <StarRating />
-                  <div className="flex items-center space-x-3 mt-2">
+                  <div className="flex items-center space-x-3 mt-3">
                     <img
                       src={t.avatar}
                       alt={t.name}
@@ -132,7 +129,6 @@ const Testimonials = () => {
         </Swiper>
       </Container>
 
-      {/* Pagination Style */}
       <style jsx global>{`
         .swiper-pagination {
           bottom: 0px !important;
@@ -145,11 +141,11 @@ const Testimonials = () => {
           width: 10px;
           height: 10px;
           background: #00984a !important;
-          opacity: 0.5; /* inactive dots at 50% opacity */
+          opacity: 0.5;
           transition: transform 0.3s, opacity 0.3s;
         }
         .swiper-pagination-bullet-active {
-          opacity: 1 !important; /* active dot fully opaque */
+          opacity: 1 !important;
           transform: scale(1.2);
           background: #00984a !important;
         }

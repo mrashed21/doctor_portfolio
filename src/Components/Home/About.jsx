@@ -1,18 +1,17 @@
-
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import Container from "../Container/Container";
 
-const imageMain = "/about_one.png";
-const imageTopLeft = "/about_three.png";
+const imageMain = "/about-One.jpg";
+const imageTopLeft = "/service_image.png";
 const imageBottomLeft = "/about_two.png";
 
 const features = [
-  "Monthly Checkups",
-  "Cosmetic Filling",
-  "Caring & Support Always",
-  "Depending X-Ray",
-  "Proactive and Fast Results",
-  "Complete Crown",
+  "High-Risk Pregnancy Management",
+  "Feto-Maternal Medicine Expertise",
+  "Advanced Obstetrics & Gynecology Care",
+  "Evidence-Based Patient Support",
+  "Government Specialist (25th BCS)",
+  "Award-Winning Research & Training",
 ];
 
 const About = () => {
@@ -27,31 +26,27 @@ const About = () => {
     >
       <section className="bg-[#fdfdff7f] py-20">
         <Container className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center px-5">
-          {/* Desktop Image Layout */}
           <div
             className="hidden md:block md:col-span-6 relative h-[650px]"
             data-aos="fade-right"
           >
-            {/* Main Doctor Image (Center/Right) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[70%] rounded-2xl overflow-hidden  z-10">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[55%] h-[70%] rounded-2xl overflow-hidden z-10">
               <img
                 src={imageMain}
-                alt="Dr. Runa Dhola"
+                alt="Dr. Runa Akhter Dola"
                 className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Top-Left Image */}
             <div className="absolute -left-3 top-5 w-[45%] h-[50%] rounded-xl overflow-hidden shadow-lg">
               <img
                 src={imageTopLeft}
-                alt="Doctor with Patient"
+                alt="Dr. Runa Akhter Dola with patient"
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
 
-            {/* Bottom-Left Image */}
-            <div className="absolute -left-3 bottom-0 w-[45%] h-[45%] rounded-xl overflow-hidden ">
+            <div className="absolute -left-3 bottom-0 w-[45%] h-[45%] rounded-xl overflow-hidden">
               <img
                 src={imageBottomLeft}
                 alt="Doctor Consulting"
@@ -59,24 +54,21 @@ const About = () => {
               />
             </div>
 
-            <div className="absolute left-[45%] bg-none top-[53%] transform -translate-x-1/2 -translate-y-1/2 z-20 w-28 h-28 rounded-full flex items-center justify-center rotate-45">
+            <div className="absolute left-[45%] bg-none top-[53%] transform -translate-x-1/2 -translate-y-1/2 z-20 w-28 h-28 rounded-full flex items-center justify-center rotate-45 opacity-50">
               <img src="/about_circle.png" alt="about" />
             </div>
           </div>
 
-          {/* Mobile Image Layout */}
           <div className="md:hidden relative h-[500px] mb-8">
-            {/* Main Doctor Image (Center) */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[70%] h-[60%] rounded-2xl overflow-hidden  z-10">
+            <div className="absolute left-1/2 -translate-x-1/2 -top-20 w-[90%] h-[60%] rounded-2xl overflow-hidden z-10  lg:border border-gray-200">
               <img
                 src={imageMain}
-                alt="Dr. Runa Dhola"
-                className="w-full h-full object-cover"
+                alt="Dr. Runa Akhter Dola"
+                className="w-full h-full "
               />
             </div>
 
-            {/* Top-Left Image */}
-            <div className="absolute left-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden s">
+            <div className="absolute left-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden">
               <img
                 src={imageTopLeft}
                 alt="Doctor with Patient"
@@ -84,8 +76,7 @@ const About = () => {
               />
             </div>
 
-            {/* Bottom-Right Image */}
-            <div className="absolute right-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden ">
+            <div className="absolute right-0 top-[45%] w-[45%] h-[30%] rounded-xl overflow-hidden">
               <img
                 src={imageBottomLeft}
                 alt="Doctor Consulting"
@@ -93,29 +84,38 @@ const About = () => {
               />
             </div>
 
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-[40%] z-20 w-20 h-20 rounded-full flex items-center justify-center rotate-45">
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-[38%] z-20 w-20 h-20 rounded-full flex items-center justify-center rotate-45 opacity-5">
               <img
                 src="/about_circle.png"
                 alt="about"
-                className="w-full h-full"
+                className="w-full h-full "
               />
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="md:col-span-6 md:pl-8" data-aos="fade-left">
             <p className="text-green-600 font-semibold text-base mb-2">
               About Me
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Dr. Runa Akhter Dhola
+              Dr. Runa Akhter Dola
             </h2>
 
-            <p className="mt-4 text-gray-600 mb-8 max-w-xl text-sm md:text-base">
-              I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal
-              Medicine Specialist] with a passion for providing holistic,
-              evidence-based medical care, passion for providing holistic,
-              evidence-based medical care.
+            <p className="mt-4 text-gray-600 mb-8 max-w-xl text-sm md:text-base leading-relaxed">
+              Dr. Runa Akhter Dola is a highly experienced Obstetrics and
+              Gynaecology Specialist under the Government of Bangladesh, with
+              over 18 years of dedicated service. She holds dual FCPS degrees in
+              Obstetrics & Gynaecology and Feto-Maternal Medicine, and has
+              served as an Assistant Professor at Sir Salimullah Medical College
+              & Mitford Hospital. <br />
+              <br />A national master trainer on MCCoD and SMoL, Dr. Dola is
+              committed to improving maternal and fetal outcomes through
+              compassionate, evidence-based care. She is also the recipient of
+              the prestigious <b>
+                SS Ratnam Young Gynaecologist Award 2019
+              </b>{" "}
+              from the Asia and Oceania Federation of Obstetrics and Gynaecology
+              (AOFOG).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 mb-8">
@@ -131,14 +131,13 @@ const About = () => {
               ))}
             </div>
 
-            {/* Read More Link */}
-            <a
+            {/* <a
               href="/"
               className="inline-flex items-center space-x-1 text-blue-600 font-semibold hover:text-blue-700 transition relative text-sm after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
             >
               <span>Read More</span>
               <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </a> */}
           </div>
         </Container>
       </section>

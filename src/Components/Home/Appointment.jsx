@@ -3,7 +3,6 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import Container from "../Container/Container";
 
-// Mock data for time slots
 const timeSlots = [
   "10:00 PM",
   "10:15 PM",
@@ -89,7 +88,6 @@ const Appointment = () => {
       id="appointment"
       className="flex justify-center items-center py-10 lg:py-20 bg-gray-100 min-h-screen relative"
     >
-      {/* Background Split */}
       <div className="absolute inset-0 grid grid-cols-2">
         <div className="bg-[url(/app_left.png)] relative overflow-hidden">
           <div
@@ -111,7 +109,6 @@ const Appointment = () => {
           className="w-full max-w-4xl bg-white p-3 lg:p-8 sm:p-10 rounded-xl shadow-2xl"
           data-aos="fade-up"
         >
-          {/* Heading */}
           <div className="mb-8 text-center">
             <p className="text-green-600 font-semibold text-sm mb-1">
               Request a Consultation
@@ -121,12 +118,10 @@ const Appointment = () => {
             </h2>
           </div>
 
-          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4"
           >
-            {/* LEFT */}
             <div className="space-y-4">
               <StyledInput
                 placeholder="Enter patient name"
@@ -157,7 +152,6 @@ const Appointment = () => {
               />
             </div>
 
-            {/* RIGHT */}
             <div className="space-y-4">
               <StyledInput
                 placeholder="Enter phone number"
@@ -178,7 +172,6 @@ const Appointment = () => {
                 ]}
               />
 
-              {/* Chamber */}
               <div className="border border-gray-200 p-3 rounded-lg">
                 <div className="flex items-center space-x-2 mb-2">
                   <input
@@ -202,7 +195,6 @@ const Appointment = () => {
                   <span className="text-xs text-gray-500">10 AM - 1 PM</span>
                 </div>
 
-                {/* Google Map Embed */}
                 <div className="relative w-full rounded-lg overflow-hidden">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d362.3843573770543!2d90.38164322518969!3d23.868751679035256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c573f4be7859%3A0xfe148d927ed0353a!2sClassic%20IT%20%26%20Sky%20Mart%20Ltd.!5e1!3m2!1sen!2sbd!4v1759552930993!5m2!1sen!2sbd"
@@ -215,7 +207,6 @@ const Appointment = () => {
                 </div>
               </div>
 
-              {/* Date Picker */}
               <DatePicker
                 selected={startDate}
                 onChange={(date) => {
@@ -230,7 +221,6 @@ const Appointment = () => {
               />
             </div>
 
-            {/* TIME + BUTTON */}
             <div className="lg:col-span-2 space-y-4">
               <p className="text-sm font-medium text-gray-700 mt-2">
                 Select Time

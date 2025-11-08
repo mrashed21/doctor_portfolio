@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Container from "../Container/Container";
-// --- Swiper Imports ---
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "swiper/css";

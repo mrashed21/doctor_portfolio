@@ -3,8 +3,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import Appointment from "../Home/Appointment";
-import Blog from "../Home/Blog";
 import HeroComponents from "../Shared/Hero/HeroComponents";
 import MyMedicalServices from "./MyMedicalServices";
 
@@ -20,16 +18,16 @@ const Service = () => {
   return (
     <section>
       <HeroComponents
-        title="Service"
-        subtitle="I'm Dr. Runa Akhter Dhola a [Specialization, e.g., Internal Medicine Specialist] with a passion for providing holistic, evidence-based medical care."
+        title="Medical Services"
+        subtitle="Dr. Runa Akhter Dhola is a high-risk pregnancy and fetal medicine specialist with over 18 years of experience in women's health, providing compassionate and evidence-based care."
         breadcrumbPath=""
-        backgroundImage=""
+        backgroundImage="/service_hero_bg.png"
       />
       <MyMedicalServices />
-      <Appointment />
-      <section className="py-10">
+      {/* <Appointment /> */}
+      {/* <section className="py-10">
         <Blog />
-      </section>
+      </section> */}
     </section>
   );
 };

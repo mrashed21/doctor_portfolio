@@ -7,103 +7,44 @@ import Container from "../Container/Container";
 
 const faqData = [
   {
-    question: "What do we treat?",
+    question:
+      "What type of patients do you treat? / আপনি কী ধরনের রোগীদের চিকিৎসা করেন?",
     answer:
-      "Common health issue Ask anything you would normally ask your GP. You can have an instant video with one of our GPs via a digital consultation from anywhere, at any time of day. Specialist advice Sometimes it’s helpful to see a specialist when you want. And get educational advice, pre-screening, monitoring and follow-ups. For maternal and infant health care, chronic disease issues such as diabetes, or other conditions, DocTime can help you to connect with the right specialist doctor and to stay healthy. More than 20 different specialties are available on DocTime. Common health issue Ask anything you would normally ask your GP. You can have an instant video with one of our GPs via a digital consultation from anywhere, at any time of day. Specialist advice Sometimes it’s helpful to see a specialist when you want.",
+      "I specialize in Obstetrics and Gynaecology — including high-risk pregnancy, fetal medicine, infertility, menstrual disorders, PCOS, uterine fibroids, and other women’s health issues. আমি গর্ভবতী মায়েদের উচ্চ ঝুঁকির চিকিৎসা, সন্তান জন্মদান, বন্ধ্যাত্ব, মাসিক সমস্যা, ফাইব্রয়েড, এবং নারীদের অন্যান্য শারীরিক সমস্যার চিকিৎসা করি।",
   },
   {
-    question: "How does it work?",
+    question: "What is a high-risk pregnancy? / উচ্চ ঝুঁকিপূর্ণ গর্ভাবস্থা কী?",
     answer:
-      "You can easily book an appointment through our website or app. Once booked, you’ll receive a link to join the consultation. Simply click on the link at your scheduled time and connect with your doctor via secure video call.",
-  },
-  {
-    question: "Who provides consultation on me?",
-    answer:
-      "All consultations are conducted by certified and verified doctors who specialize in a range of medical fields to ensure you receive the best care possible.",
-  },
-  {
-    question: "Are the registered patients verified?",
-    answer:
-      "Yes, all registered patients are verified to maintain safety and authenticity within our platform.",
-  },
-  {
-    question: "When are the doctors available for consultation?",
-    answer:
-      "Doctors are available for consultation 24/7. You can view each doctor’s availability in real time when scheduling your appointment.",
-  },
-  {
-    question: "Can we select a doctor of our own choice?",
-    answer:
-      "Yes, you can browse our list of doctors, view their specialties, and choose the one you prefer for your consultation.",
-  },
-  {
-    question: "How much do I need to pay for the consultation?",
-    answer:
-      "Consultation fees vary depending on the doctor’s specialty and experience. The exact cost will be displayed during booking before confirmation.",
-  },
-  {
-    question: "How do I make payment?",
-    answer:
-      "Payments can be made online using credit/debit cards, mobile banking, or digital wallet options available on our platform.",
+      "A high-risk pregnancy involves conditions like diabetes, high blood pressure, twins, or previous complications that need special monitoring. উচ্চ রক্তচাপ, ডায়াবেটিস, যমজ সন্তান বা পূর্ববর্তী জটিলতা থাকলে গর্ভাবস্থা উচ্চ ঝুঁকিপূর্ণ হয় এবং বিশেষ যত্নের প্রয়োজন হয়।",
   },
   {
     question:
-      "If I decide to cancel my consultation after making payment, how do I get a refund?",
+      "When should I visit a gynecologist? / কখন গাইনী ডাক্তারের কাছে যাওয়া উচিত?",
     answer:
-      "If you cancel before the consultation starts, you’ll be eligible for a refund according to our cancellation policy. Refunds are processed within a few business days.",
+      "You should visit a gynecologist if you have irregular periods, pain, infertility, unusual discharge, or pregnancy-related complications. মাসিক অনিয়ম, ব্যথা, সন্তান ধারণে সমস্যা, বা গর্ভাবস্থার জটিলতা থাকলে গাইনী ডাক্তারের পরামর্শ নেওয়া উচিত।",
   },
   {
-    question: "Is my data secure?",
+    question: "What is fetal medicine? / ফিটাল মেডিসিন কী?",
     answer:
-      "Yes, all data shared through our platform is encrypted and securely stored in compliance with data protection regulations.",
-  },
-  {
-    question: "Do I need to prepare anything before the video consultation?",
-    answer:
-      "Please ensure a stable internet connection, a quiet environment, and any medical reports or prescriptions you may want to share with your doctor.",
-  },
-  {
-    question: "How do I get a prescription for my consultation?",
-    answer:
-      "After your consultation, your doctor will issue a digital prescription, which you can download or view directly in your account.",
+      "Fetal medicine deals with the care of the baby inside the womb. It includes early detection of fetal abnormalities, growth monitoring, and managing complications. ফিটাল মেডিসিন হলো গর্ভের শিশুর যত্ন — যেখানে শিশুর বৃদ্ধি, অস্বাভাবিকতা বা জটিলতা শনাক্ত ও চিকিৎসা করা হয়।",
   },
   {
     question:
-      "If the doctor finds out that my problem is not treatable over video call?",
+      "How often should I go for antenatal checkups? / গর্ভকালীন চেকআপ কতবার করা উচিত?",
     answer:
-      "If the issue requires in-person care, the doctor will guide you on the next steps and refer you to an appropriate healthcare facility if needed.",
+      "Ideally, once every month during the first 7 months, twice a month in the 8th month, and weekly during the 9th month. সাধারণত প্রথম ৭ মাসে মাসে একবার, ৮ম মাসে দুইবার, এবং ৯ম মাসে প্রতি সপ্তাহে একবার করে চেকআপ করা উচিত।",
   },
   {
     question:
-      "Are there any consultants available from doctors outside Bangladesh?",
+      "Can I have a normal delivery after cesarean? / সিজারিয়ান হওয়ার পর কি স্বাভাবিক সন্তান জন্ম সম্ভব?",
     answer:
-      "Yes, we have international consultants from various countries who are available for online consultations based on your needs.",
-  },
-  {
-    question: "Can I get consultation if I am outside Bangladesh?",
-    answer:
-      "Yes, you can access our services from anywhere in the world as long as you have an internet connection.",
-  },
-  {
-    question: "Who ensures that the correct doctor is giving the consultation?",
-    answer:
-      "Our verification and quality assurance team ensures all doctors are licensed and matched correctly to their area of expertise.",
-  },
-  {
-    question: "Can I order medicine on DocTime?",
-    answer:
-      "Yes, you can order prescribed medicines directly from our platform and get them delivered to your doorstep.",
-  },
-  {
-    question: "Can I order diagnostics tests through DocTime?",
-    answer:
-      "Yes, diagnostic tests can be booked online and samples can be collected from your home depending on your location.",
+      "In some cases, yes — depending on your health and previous delivery condition. It’s called VBAC (Vaginal Birth After Cesarean). কিছু ক্ষেত্রে সিজারিয়ানের পর স্বাভাবিক সন্তান জন্ম দেওয়া সম্ভব, তবে এটি সম্পূর্ণ নির্ভর করে মায়ের শারীরিক অবস্থা ও পূর্ববর্তী প্রসবের ইতিহাসের উপর।",
   },
   {
     question:
-      "What are the benefits of the healthcare and protection plans/ subscription packages?",
+      "How can I prevent gynecological problems? / গাইনী সমস্যা প্রতিরোধ করা যায় কিভাবে?",
     answer:
-      "Our healthcare plans offer regular check-ups, discounts on consultations, lab tests, and medicines, and priority access to doctors for continuous care and protection.",
+      "Regular checkups, maintaining hygiene, balanced diet, exercise, and avoiding stress help prevent many gynecological problems. নিয়মিত চেকআপ, পরিচ্ছন্নতা বজায় রাখা, সুষম খাবার, ব্যায়াম, ও মানসিক চাপ কমালে বেশিরভাগ গাইনী সমস্যা প্রতিরোধ করা যায়।",
   },
 ];
 
@@ -177,15 +118,15 @@ const FaqSection = () => {
             data-aos="fade-down"
             data-aos-delay="100"
           >
-            Have Any Questions?
+            Frequently Asked Questions (FAQ)
           </h2>
           <p
             className="text-gray-500 mt-3 text-sm md:text-base"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Find below our frequently asked questions. If you have other
-            questions please contact me.
+            Here are some of the most common questions my patients ask. নিচে
+            রোগীদের কিছু সাধারণ প্রশ্ন এবং তার উত্তর দেওয়া হলো।
           </p>
         </div>
 
